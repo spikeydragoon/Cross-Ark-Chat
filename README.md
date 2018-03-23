@@ -13,6 +13,7 @@ Island: (spikeydragoon): Hello all!
 Center: (spikeydragoon): Hello all!
 ```
 
+Read the [CONTRIBUTING.md](https://github.com/spikeydragoon/Cross-Ark-Chat/blob/master/CONTRIBUTING.md) file before submitting a issue.
 
 ## Getting Started
 
