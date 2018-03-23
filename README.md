@@ -221,7 +221,7 @@ Thats all i can think of for now :)
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](Cross-Ark-Chat/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/spikeydragoon/Cross-Ark-Chat/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 
 ## Authors
