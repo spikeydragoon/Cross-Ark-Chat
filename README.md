@@ -14,6 +14,7 @@ Center: (spikeydragoon): Hello all!
 ```
 
 Read the [CONTRIBUTING.md](https://github.com/spikeydragoon/Cross-Ark-Chat/blob/master/CONTRIBUTING.md) file before submitting a issue.
+
 Join us on [Discord](https://discord.gg/HAk4BmN)
 
 ## Getting Started
