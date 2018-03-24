@@ -239,4 +239,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Shout out to [Bletch1971](https://github.com/Bletch1971) looking over your rcon code helped alot and the ASM program you helped developed is amazing.
+* Shout out to [Bletch1971](https://github.com/Bletch1971) looking over your rcon code helped alot and the ASM program you and your team developed is amazing.
