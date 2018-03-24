@@ -74,8 +74,8 @@ Here is the reason this code is better
 
 ### what to include when making typo corrections or improving guides
 
-*For typoes or improving guides not much to say here just include a snippet of what needs to be changed and why. Example Hey spikey here is snippet from install guide of a few spelling or wording changes to make it cleaner or clear for people to read.
-*For any videos you want to make for a guide just make sure to be clear have good video quality is all i ask.
+* For typoes or improving guides not much to say here just include a snippet of what needs to be changed and why. Example Hey spikey here is snippet from install guide of a few spelling or wording changes to make it cleaner or clear for people to read.
+* For any videos you want to make for a guide just make sure to be clear have good video quality is all i ask.
 
 Example for typos or guide updates
 ```
