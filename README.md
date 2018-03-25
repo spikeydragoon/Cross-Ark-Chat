@@ -195,13 +195,10 @@ Thats it your bot is now added to your discord server and once your done setting
 * A: Sadly no this is a limitation of Rcons `sendchat` command and is hard coded into Arks Rcon. Until they make an option to be able to change this we are stuck with the yellow :(
 
 * Q: Are you open to ideas and code changes?
-* A: Yes i am all for adding new ideas and optimizing the code. If you want to contribute by helping with codeing, making better guids, correcting my many typos, or giving ideas read the Contributing section then hit me up.
+* A: Yes i am all for adding new ideas and optimizing the code. If you want to contribute by making better guides, correcting my many typos, or giving ideas read the Contributing section then hit me up.
 
 * Q: Do you plan to charge for this program?
-* A: No i like "moneys" however this project was for fun and for the community to enjoy so if you paid for this then you have been scammed. If you want to help me you can feed me new ideas, help with making better guides, fixing typos, or help with code. Im to lazy to set up a paypal for donations but i may in the future since a free dr pepper would be nice.
-
-* Q: Why does your code look like a noob did it?
-* A: I code as a hobby and never fully learned one langue only entry level stuff. Between side projects and work i use a little of everything.  c, c#, c++, html, python, php and java are what i dabbled in so far with the Cs and java being the main ones.
+* A: No i like "moneys" however this project was for fun and for the community to enjoy so if you paid for this then you have been scammed. If you want to help me you can feed me new ideas, help with making better guides, or fixing typos. Im to lazy to set up a paypal for donations but i may in the future since a free dr pepper would be nice.
 
 * Q: Do you plan to add more features or is this it?
 * A: I plan to keep updating the program for a good while mostly for the experience and to see what all we can do with it. Check my to-do list for my planned updates. Due to working full time i dont give etas since work might get busy depending on the season but i plan to at the bare min make sure the bot at least runs. If this ever changes i will let everyone know and look for someone to take it over.
@@ -241,4 +238,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Shout out to [Bletch1971](https://github.com/Bletch1971) looking over your rcon code helped alot and the ASM program you and your team developed is amazing.
+* Shout out to [Bletch1971](https://github.com/Bletch1971) looking over your rcon code helped a lot and the ASM program you and your team developed is amazing.
