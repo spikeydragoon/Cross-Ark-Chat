@@ -24,7 +24,7 @@ These instructions will get you a copy of Cross Ark Chat up and running.
 
 ### Prerequisites
 
-This is for Windows OS only however if anyone wants to contribute and make a version for linux then shoot me a message.
+This is for Windows OS only however i am toying with a linux and mac build so they may or may not get released.
 
 You must have rcon enabled in the Ark Server settings.
 
@@ -40,8 +40,7 @@ You must have rcon enabled in the Ark Server settings.
 3a:Optionally if you want to setup a badword list then configure settings in `_wordfilter.json`.
 If you dont plan to use badword filters then can just ignore this file. Do not delete this file as program wont run if its missing.
 
-4:Launch the program and enjoy. For discord version only you must type `d!startchat` in your discord server to start Cross Chat.
-If you changed the prefix in the config then use that instead of `d!` with `startchat`. Example `dt!startchat`.
+4:Launch the program and enjoy.
 
 
 ## Configuration
@@ -209,7 +208,6 @@ Thats all i can think of for now :)
 ## To-Do List
 
 * Fix the Rcon commands that are buggy.
-* Optimize code.
 
 
 ## Built With
