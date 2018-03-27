@@ -2,7 +2,7 @@
 
 Cross Ark Chat connects all of your Ark Survival Evolved Servers chat together allowing you to talk to anyone from anywhere on your servers/clusters. I have added support to link in a discord channel so you can talk with your players from discord.
 
-This program uses pure Rcon so it can be ran from anywhere however for best proformance i would run it from the same pc that is hosting your Ark servers.
+This program uses pure Rcon so it can be ran from anywhere however for best performance i would run it from the same pc that is hosting your Ark servers.
 
 Since this program uses Rcon i did add in some rcon commands in the discord version however some are buggy and i am working to get those resolved.
 
