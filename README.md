@@ -17,6 +17,8 @@ Read the [CONTRIBUTING.md](https://github.com/spikeydragoon/Cross-Ark-Chat/blob/
 
 Join us on [Discord](https://discord.gg/HAk4BmN)
 
+If your looking to play on a server with this here is link to my [servers](arkservermanager.freeforums.net/thread/4716/dinoroars-cross-ark-servers-cluster)
+
 ## Getting Started
 
 These instructions will get you a copy of Cross Ark Chat up and running.
