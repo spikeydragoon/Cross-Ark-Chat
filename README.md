@@ -209,7 +209,7 @@ Thats all i can think of for now :)
 
 ## To-Do List
 
-* Fix the Rcon commands that are buggy.
+* For a updated list check [here](https://github.com/spikeydragoon/Cross-Ark-Chat/projects/1)
 
 
 ## Built With
