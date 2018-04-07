@@ -1,6 +1,7 @@
 # Cross-Ark-Chat
 
 Cross Ark Chat connects all of your Ark Survival Evolved Servers chat together allowing you to talk to anyone from anywhere on your servers/clusters. I have added support to link in a discord channel so you can talk with your players from discord.
+You can also enable tribe logs to be sent to your discord channel.
 
 This program uses pure Rcon so it can be ran from anywhere however for best performance i would run it from the same pc that is hosting your Ark servers.
 
@@ -28,7 +29,9 @@ These instructions will get you a copy of Cross Ark Chat up and running.
 
 This is for Windows OS only however i am toying with a linux and mac build so they may or may not get released.
 
-You must have rcon enabled in the Ark Server settings.
+You must have rcon enabled in the Ark Server Settings.
+
+For tribe logs you must have log tribe logs to rcon enabled in the Ark Server Settings.
 
 
 ### Installation
@@ -70,6 +73,8 @@ For Non Discord Version of settings.
 * `ShowTribeLogsInChat` tells the bot to either show or hide tribe logs in chat. `true` is to show tribe logs in chat `false is to hide them. This only matters if you have show Tribe logs in Rcon enabled in your Ark Server Settings. This settings is mostly for people that wanted to have tribe logs in rcon however dont want it showing up in the bot. 
 
 For Discord Version of Settings
+* `TribeID1` should be replaced with the tribes id that you want the bot to get logs for.
+* `00000` should be replaced with the DiscordChannel id the tribe is useing.
 * `DiscordChannelID` is the id of the channel you want the bot to send all the chat messages to and from.
 * `TribeLogsDiscordChannelID` is the id of the channel you want the bot to send tribe logs to if you have them enabled. Note this can be the same as the DiscordChannelID if you want both to show in same chat.
 * `prefix` is the tag you use in discord when sending commands. Example `d!` is used like `d!startchat`
@@ -77,6 +82,7 @@ For Discord Version of Settings
 * `ShowAdminCommands` tells the bot to either show or hide admin commands. `true` is to show commands and `false` is to hide them.
 * `ShowChatPrefixInDiscord` tells the bot to either show or hide the chat prefix in discord. This is mainly for people who only have one server. `true` shows the chat prefix(MapName) in discord `false` hides the prefix.
 * `ShowTribeLogsInChat` tells the bot to either show or hide tribe logs in discord. This only matters if you have show Tribe logs in Rcon enabled in your Ark Server Settings.
+* `SendTribeLogsToOwnChannel` tells the bot to send tribe logs to their own discord channels. ShowTribeLogsInChat must be enabled.
 
 Example of adding more than one server to the bot. 
 Notice the , is required for each additional server however the last one doesnt have one. This is important as if you dont put the , where needed the bot will not work.
@@ -96,6 +102,14 @@ Notice the , is required for each additional server however the last one doesnt 
     }
   ],
 ```
+
+Example of adding more than one tribe to the bot.
+Notice the , is required for each additional tribe however the last one doesnt have one. This is important as if you dont put the , where needed the bot will not work.
+```json
+"TribeIDs":{
+    "TribeID1": 00000,
+    "TribeID2": 00000
+  },
 
 Example config for version without discord.
 ```json
@@ -127,6 +141,10 @@ Example config for version with discord.
       "Password": "Password"
     }
   ],
+  
+  "TribeIDs":{
+    "TribeID1": 00000
+  },
  
   "DiscordSettings": {
     "DiscordChannelID": 0000000,
@@ -135,7 +153,8 @@ Example config for version with discord.
     "DiscordToken": "DiscordBotToken",
     "ShowAdminCommands": false,
     "ShowChatPrefixInDiscord": true,
-    "ShowTribelogsInChat": false
+    "ShowTribelogsInChat": false,
+    "SendTribeLogsToOwnChannel": false
   }
 }
 ```
