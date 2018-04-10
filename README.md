@@ -27,7 +27,23 @@ These instructions will get you a copy of Cross Ark Chat up and running.
 
 ### Prerequisites
 
-This is for Windows OS only however i am toying with a linux and mac build so they may or may not get released.
+This is for both linux and windows.
+
+For linux you must download libunwind8 for CrossArkChat to work. 
+
+For Linux set the CrossArkChat folder/files permissions to 755 to allow w/r/execute     
+
+For Ubuntu/Debian
+```
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install libunwind8
+```
+For RedHat/CentOS
+```
+sudo yum update
+sudo yum install libunwind libicu
+```
 
 You must have rcon enabled in the Ark Server Settings.
 
@@ -45,7 +61,7 @@ For tribe logs you must have log tribe logs to rcon enabled in the Ark Server Se
 3a:Optionally if you want to setup a badword list then configure settings in `_wordfilter.json`.
 If you dont plan to use badword filters then can just ignore this file. Do not delete this file as program wont run if its missing.
 
-4:Launch the program and enjoy.
+4:Launch the program and enjoy. For linux/redhat use `./CrossArkChat` or `./CrossDiscordArkChat` to start the bot
 
 
 ## Configuration
@@ -77,7 +93,7 @@ For Discord Version of Settings
 * `00000` should be replaced with the DiscordChannel id the tribe is useing.
 * `DiscordChannelID` is the id of the channel you want the bot to send all the chat messages to and from.
 * `TribeLogsDiscordChannelID` is the id of the channel you want the bot to send tribe logs to if you have them enabled. Note this can be the same as the DiscordChannelID if you want both to show in same chat.
-* `prefix` is the tag you use in discord when sending commands. Example `d!` is used like `d!startchat`
+* `prefix` is the tag you use in discord when sending commands.
 * `DiscordToken` is the Discord Bot Token required for the bot to connect to your server.
 * `ShowAdminCommands` tells the bot to either show or hide admin commands. `true` is to show commands and `false` is to hide them.
 * `ShowChatPrefixInDiscord` tells the bot to either show or hide the chat prefix in discord. This is mainly for people who only have one server. `true` shows the chat prefix(MapName) in discord `false` hides the prefix.
