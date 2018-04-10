@@ -31,8 +31,6 @@ This is for both linux and windows.
 
 For linux you must download libunwind8 for CrossArkChat to work. 
 
-For Linux set the CrossArkChat folder/files permissions to 755 to allow w/r/execute     
-
 For Ubuntu/Debian
 ```
 sudo apt-get update
@@ -44,6 +42,8 @@ For RedHat/CentOS
 sudo yum update
 sudo yum install libunwind libicu
 ```
+
+For Linux set the CrossArkChat folder/files permissions to 755 to allow w/r/execute
 
 You must have rcon enabled in the Ark Server Settings.
 
