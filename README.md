@@ -86,7 +86,9 @@ You should not use your own public ip as this will cause problems.
 
 For Non Discord Version of settings.
 * `ShowAdminCommands` tells the bot to either show or hide admin commands. `true` is to show commands and `false` is to hide them.
-* `ShowTribeLogsInChat` tells the bot to either show or hide tribe logs in chat. `true` is to show tribe logs in chat `false is to hide them. This only matters if you have show Tribe logs in Rcon enabled in your Ark Server Settings. This settings is mostly for people that wanted to have tribe logs in rcon however dont want it showing up in the bot. 
+* `ShowTribeLogsInChat` tells the bot to either show or hide tribe logs in chat. `true` is to show tribe logs in chat `false is to hide them. This only matters if you have show Tribe logs in Rcon enabled in your Ark Server Settings. This settings is mostly for people that wanted to have tribe logs in rcon however dont want it showing up in the bot.
+* `UsePrefixToSendChat` tells the bot to use the PrefixToSendChat or not. If true you have to type the prefix first before your message will be sent. Example /cc hello
+* `PrefixToSendChat` is the prefix that will be used if UsePrefixToSendChat is true. This prefix must be typed before the message to send chat. Example /cc hello
 
 For Discord Version of Settings
 * `TribeID1` should be replaced with the tribes id that you want the bot to get logs for.
@@ -99,6 +101,8 @@ For Discord Version of Settings
 * `ShowChatPrefixInDiscord` tells the bot to either show or hide the chat prefix in discord. This is mainly for people who only have one server. `true` shows the chat prefix(MapName) in discord `false` hides the prefix.
 * `ShowTribeLogsInChat` tells the bot to either show or hide tribe logs in discord. This only matters if you have show Tribe logs in Rcon enabled in your Ark Server Settings.
 * `SendTribeLogsToOwnChannel` tells the bot to send tribe logs to their own discord channels. ShowTribeLogsInChat must be enabled.
+* `UsePrefixToSendChat` tells the bot to use the PrefixToSendChat or not. If true you have to type the prefix first before your message will be sent. Example /cc hello
+* `PrefixToSendChat` is the prefix that will be used if UsePrefixToSendChat is true. This prefix must be typed before the message to send chat. Example /cc hello
 
 Example of adding more than one server to the bot. 
 Notice the , is required for each additional server however the last one doesnt have one. This is important as if you dont put the , where needed the bot will not work.
@@ -141,7 +145,9 @@ Example config for version without discord.
   
   "CrossChatSettings":{
     "ShowAdminCommands": false,
-    "ShowTribeLogsInChat": false
+    "ShowTribeLogsInChat": false,
+    "UsePrefixToSendChat": false,
+    "PrefixToSendChat": "/cc"
     }
 }
 ```
@@ -170,7 +176,9 @@ Example config for version with discord.
     "ShowAdminCommands": false,
     "ShowChatPrefixInDiscord": true,
     "ShowTribelogsInChat": false,
-    "SendTribeLogsToOwnChannel": false
+    "SendTribeLogsToOwnChannel": false,
+    "UsePrefixToSendChat": false,
+    "PrefixToSendChat": "/cc"
   }
 }
 ```
