@@ -84,6 +84,8 @@ You should not use your own public ip as this will cause problems.
 
 * `Password`: is the Admin password on the Ark Server. This should not contain spaces or special characters as it will cause the program to not work properly.
 
+* `ServerChannelId`: is the discord channel id that the server should send messages to if SendServerChatToOwnChannel is enabled.
+
 For Non Discord Version of settings.
 * `ShowAdminCommands` tells the bot to either show or hide admin commands. `true` is to show commands and `false` is to hide them.
 * `ShowTribeLogsInChat` tells the bot to either show or hide tribe logs in chat. `true` is to show tribe logs in chat `false is to hide them. This only matters if you have show Tribe logs in Rcon enabled in your Ark Server Settings. This settings is mostly for people that wanted to have tribe logs in rcon however dont want it showing up in the bot.
@@ -91,8 +93,12 @@ For Non Discord Version of settings.
 * `PrefixToSendChat` is the prefix that will be used if UsePrefixToSendChat is true. This prefix must be typed before the message to send chat. Example /cc hello
 
 For Discord Version of Settings
-* `TribeID1` should be replaced with the tribes id that you want the bot to get logs for.
-* `00000` should be replaced with the DiscordChannel id the tribe is useing.
+
+For Tribe settings.
+* `TribeId`: is the in-game tribe id.
+* `TribeDiscordId` is the discord channel id that the server should send messages to if SendTribeLogsToOwnChannel is enabled.
+
+For Discord Settings.
 * `DiscordChannelID` is the id of the channel you want the bot to send all the chat messages to and from.
 * `TribeLogsDiscordChannelID` is the id of the channel you want the bot to send tribe logs to if you have them enabled. Note this can be the same as the DiscordChannelID if you want both to show in same chat.
 * `prefix` is the tag you use in discord when sending commands.
@@ -101,6 +107,7 @@ For Discord Version of Settings
 * `ShowChatPrefixInDiscord` tells the bot to either show or hide the chat prefix in discord. This is mainly for people who only have one server. `true` shows the chat prefix(MapName) in discord `false` hides the prefix.
 * `ShowTribeLogsInChat` tells the bot to either show or hide tribe logs in discord. This only matters if you have show Tribe logs in Rcon enabled in your Ark Server Settings.
 * `SendTribeLogsToOwnChannel` tells the bot to send tribe logs to their own discord channels. ShowTribeLogsInChat must be enabled.
+* `SendServerChatToOwnChannel` tells the bot to send server chat to their own discord channels.
 * `UsePrefixToSendChat` tells the bot to use the PrefixToSendChat or not. If true you have to type the prefix first before your message will be sent. Example /cc hello
 * `PrefixToSendChat` is the prefix that will be used if UsePrefixToSendChat is true. This prefix must be typed before the message to send chat. Example /cc hello
 
@@ -112,13 +119,15 @@ Notice the , is required for each additional server however the last one doesnt 
       "Map": "MapName",
       "IP": "0.0.0.0",
       "Port": 00000,
-      "Password": "Password"
+      "Password": "Password",
+      "ServerChannelId": 00000
     },
     {
       "Map": "MapName",
       "IP": "0.0.0.0",
       "Port": 00000,
-      "Password": "Password"
+      "Password": "Password",
+      "ServerChannelId": 00000
     }
   ],
 ```
@@ -126,10 +135,16 @@ Notice the , is required for each additional server however the last one doesnt 
 Example of adding more than one tribe to the bot.
 Notice the , is required for each additional tribe however the last one doesnt have one. This is important as if you dont put the , where needed the bot will not work.
 ```json
-"TribeIDs":{
-    "TribeID1": 00000,
-    "TribeID2": 00000
-  },
+"TribeIDs":[
+    {
+      "TribeId": "00000",
+      "TribeDiscordId": 00000
+    },
+    {
+      "TribeId": "00000",
+      "TribeDiscordId": 00000
+    }
+  ],
 
 Example config for version without discord.
 ```json
@@ -160,13 +175,21 @@ Example config for version with discord.
       "Map": "MapNameNoSpace",
       "IP": "0.0.0.0",
       "Port": 00000,
-      "Password": "Password"
+      "Password": "Password",
+      "ServerChannelId": 00000
     }
   ],
   
-  "TribeIDs":{
-    "TribeID1": 00000
-  },
+  "TribeIDs":[
+    {
+      "TribeId": "00000",
+      "TribeDiscordId": 00000
+    },
+    {
+      "TribeId": "00000",
+      "TribeDiscordId": 00000
+    }
+  ],
  
   "DiscordSettings": {
     "DiscordChannelID": 0000000,
@@ -177,6 +200,7 @@ Example config for version with discord.
     "ShowChatPrefixInDiscord": true,
     "ShowTribelogsInChat": false,
     "SendTribeLogsToOwnChannel": false,
+    "SendServerChatToOwnChannel": false,
     "UsePrefixToSendChat": false,
     "PrefixToSendChat": "/cc"
   }
