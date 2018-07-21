@@ -64,7 +64,7 @@ If you dont plan to use badword filters then can just ignore this file. Do not d
 3b: Optionally if you want to use rcon commands from discord you must set up the role names in `_discordroles.json`.
 Role names must be exzactly how they are listed in your discord server settings / role tab. This is case sensitive.
 
-4:Launch the program and enjoy. For linux/redhat use `./CrossArkChat` or `./CrossDiscordArkChat` to start the bot
+4:Launch the program and enjoy. For linux/redhat use `./CrossArkChat` or `./CrossDiscordArkChat` to start the bot. You must start the bot from the folder the bot is in.
 
 
 ## Configuration
@@ -119,9 +119,13 @@ For Discord Settings.
 * `UsePrefixToSendChat` tells the bot to use the PrefixToSendChat or not. If true you have to type the prefix first before your message will be sent. Example /cc hello
 * `UseSupportPrefix` tells the bot to use the SupportPrefix or not. If `true` when you type the supportprefix before your message it will send a message to a set discord channel. Example /help my dinoes are stuck.
 * `PingRoleName` tells the bot to ping the set rolename in the support channel or not. `true` it will ping the discord role when it sends a message. `false` it will only send the message it will not ping anyone.
-* `PrefixToSendChat` is the prefix that will be used if UsePrefixToSendChat is true. This prefix must be typed before the message to send chat. Example /cc hello
+* `ReplyToSupportPing` tells the bot to send a reply message when someone uses the SupportPrefix.
+* `SendChatToDiscord` tells the bot to send messages to discord or not. If `true` messages will send as normal. if `false` you will have to use the `PrefixToSendToDiscord` to send messages to discord.
+* `PrefixToSendAllServers` is the prefix that will be used if UsePrefixToSendChat is true. This prefix must be typed before the message to send chat. Example /all hello
 * `SupportPrefix` is the prefix that will be used if UseSupportPrefix is true. This prefix must be typed before the messaage to send the message to the support channel. Example /help my dinos are stuck.
+* `PrefixToSendToDiscord` is the prefix that will be used if `SendChatToDiscord` is `false`. Example /discord hello.
 * `SupportRoleToPing` tell the bot which discord rolename to ping if pingrolename is true. Discord role must match the role name exzactly as its listed in your discord server roles tab. This is case sensitive.
+* `SupportPingReply` Is the message that will be sent when someone uses the SupportPrefix if `ReplyToSupportPing` is `true`.
 
 Example of adding more than one server to the bot. 
 Notice the , is required for each additional server however the last one doesnt have one. This is important as if you dont put the , where needed the bot will not work.
@@ -205,26 +209,29 @@ Example config for version with discord.
   ],
  
   "DiscordSettings": {
-    "DiscordChannelID": 0000000,
-    "TribeLogsDiscordChannelID": 0000000,
+    "DiscordChannelID": 00000,
+    "TribeLogsDiscordChannelID": 0000,
     "AdminCommandsDiscordChannelID": 0000,
     "SupportChannelID": 0000,
     "prefix": "d!",
     "DiscordChatPrefix": "Discord",
-    "DiscordToken": "DiscordBotToken",
+    "DiscordToken": "00000",
     "ShowAdminCommands": false,
     "SendAdminCommandsToOwnChannel": false,
     "ShowChatPrefixInDiscord": true,
     "ShowTribelogsInChat": false,
     "SendTribeLogsToOwnChannel": false,
     "SendServerChatToOwnChannel": false,
-    "SendServerChatToOwnChannel": false,
     "UsePrefixToSendChat": false,
     "UseSupportPrefix": false,
-    "PingRoleName": false,
-    "PrefixToSendChat": "/cc",
+    "PingRoleName": true,
+    "ReplyToSupportPing": false,
+    "SendChatToDiscord": true,
+    "PrefixToSendAllServers": "/all",
     "SupportPrefix": "/help",
-    "SupportRoleToPing": "rolename"
+    "PrefixToSendToDiscord": "/discord",
+    "SupportRoleToPing": "rolename",
+    "SupportPingReply": "Your support ticket has been sent."
   }
 }
 ```
