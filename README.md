@@ -5,7 +5,7 @@ You can also enable tribe logs to be sent to your discord channel.
 
 This program uses pure Rcon so it can be ran from anywhere however for best performance i would run it from the same pc that is hosting your Ark servers.
 
-Since this program uses Rcon i did add in some rcon commands in the discord version however some are buggy and i am working to get those resolved.
+Since this program uses Rcon i did add in some rcon commands in the discord version.
 
 This is what chat looks like depending on your settings.
 ```
@@ -64,7 +64,12 @@ If you dont plan to use badword filters then can just ignore this file. Do not d
 3b: Optionally if you want to use rcon commands from discord you must set up the role names in `_discordroles.json`.
 Role names must be exzactly how they are listed in your discord server settings / role tab. This is case sensitive.
 
-4:Launch the program and enjoy. For linux/redhat use `./CrossArkChat` or `./CrossDiscordArkChat` to start the bot. You must start the bot from the folder the bot is in.
+4:Launch the program.exe and enjoy. 
+
+4a:For linux/redhat use `./CrossArkChat` or `./CrossDiscordArkChat` to start the bot. You must start the bot from the folder the bot is in.
+If you want the bot to run in background so you dont have to stay logged in you can run `nohup ./CrossArkChat &` or `nohup ./CrossDiscordArkChat &` Note the & is very important and it will not work if thats not there.
+To find the pid run `pc -ef | grep CrossArkChat` or `pc -ef | grep CrossDiscordArkChat`.
+Once you have the pid run `kill 1234 1234` to end program nicely or `kill -9 1234 1234` to force close it. Replace the 1234 1234 with the pid you find from the above command.
 
 
 ## Configuration
@@ -77,54 +82,96 @@ At the bottom it will show examples for the versions with and without discord as
 
 Basic formating for the config should look like this.
 
+For version checker.
+Do not change anything in this part. This is used by the bot to check to see if a new version is avaiable at startup.
+```json
+"ApplicationSettings": {
+    "VersionCheckUrl": "https://raw.githubusercontent.com/spikeydragoon/Cross-Ark-Chat/master/version.txt"
+  },
+```
 For Server Settings
 * `Map`: is the name of your map. This should not contain spaces or special characters as it will cause the program to not work properly. This is also used for the chat prefix for the server if you have it enabled.
 
 * `Ip`: is either your local ip if your running bot from your own computer example `192.168.1.2` or if your trying to connect to a server on a hosting provider then you will use the hosting providers public ip address example `75.75.75.75`
 You should not use your own public ip as this will cause problems.
 
-* `Port`: is the rcon port on the Ark Server. Again you must have rcon enabled.
+* `RconPort`: is the rcon port on the Ark Server. Again you must have rcon enabled.
+
+* `QueryPort`: is the query port on the Ark Server.
 
 * `Password`: is the Admin password on the Ark Server. This should not contain spaces or special characters as it will cause the program to not work properly.
+
+* `Prefix`: is the prefix used to send chat to that server when UsePrefixToSendChat is set to `true`.
+
+* `Active`: is used to tell the bot if the server should be used or not. `true` means bot will load it `false` means bot will ignore it.
 
 * `ServerChannelId`: is the discord channel id that the server should send messages to if SendServerChatToOwnChannel is enabled.
 
 For Non Discord Version of settings.
 * `ShowAdminCommands` tells the bot to either show or hide admin commands. `true` is to show commands and `false` is to hide them.
+
 * `AdminCommandLogging` tells the bot to log admin commands. `true` is to log admin commands to its own log file. `false` is to not log admin commands.
-* `ShowTribeLogsInChat` tells the bot to either show or hide tribe logs in chat. `true` is to show tribe logs in chat `false is to hide them. This only matters if you have show Tribe logs in Rcon enabled in your Ark Server Settings. This settings is mostly for people that wanted to have tribe logs in rcon however dont want it showing up in the bot.
+
+* `ShowTribeLogsInChat` tells the bot to either show or hide tribe logs in chat. `true` is to show tribe logs in chat `false` is to hide them. This only matters if you have show Tribe logs in Rcon enabled in your Ark Server Settings. This settings is mostly for people that wanted to have tribe logs in rcon however dont want it showing up in the bot.
+
 * `UsePrefixToSendChat` tells the bot to use the PrefixToSendChat or not. If true you have to type the prefix first before your message will be sent. Example /cc hello
+
 * `PrefixToSendChat` is the prefix that will be used if UsePrefixToSendChat is true. This prefix must be typed before the message to send chat. Example /cc hello
 
 For Discord Version of Settings
 
 For Tribe settings.
 * `TribeId`: is the in-game tribe id.
+
+* `Active`: is used to tell the bot if the server should be used or not. `true` means bot will load it `false` means bot will ignore it.
+
 * `TribeDiscordId` is the discord channel id that the server should send messages to if SendTribeLogsToOwnChannel is enabled.
 
 For Discord Settings.
 * `DiscordChannelID` is the id of the channel you want the bot to send all the chat messages to and from.
+
 * `TribeLogsDiscordChannelID` is the id of the channel you want the bot to send tribe logs to if you have them enabled. Note this can be the same as the DiscordChannelID if you want both to show in same chat.
+
 * `AdminCommandsDiscordChannelID` is the id of the channel you want the bot to send admin commands to if you have them enabled.
+
 * `SupportChannelID` is the id of the channel you want the bot to send support tickets to if enabled.
+
 * `prefix` is the tag you use in discord when sending commands.
+
 * `DiscordChatPrefix` is the chat prefix used in-game when sending messages from discord.
+
 * `DiscordToken` is the Discord Bot Token required for the bot to connect to your server.
+
 * `ShowAdminCommands` tells the bot to either show or hide admin commands. `true` is to show commands and `false` is to hide them.
+
 * `SendAdminCommandsToOWnChannel` tells the bot to send admin commands to its own channel. `true` is to give admin commands its own discord channe. `false` is to keep them going to the same channel if showadmincommands is enabled.
+
 * `ShowChatPrefixInDiscord` tells the bot to either show or hide the chat prefix in discord. This is mainly for people who only have one server. `true` shows the chat prefix(MapName) in discord `false` hides the prefix.
+
 * `ShowTribeLogsInChat` tells the bot to either show or hide tribe logs in discord. This only matters if you have show Tribe logs in Rcon enabled in your Ark Server Settings.
+
 * `SendTribeLogsToOwnChannel` tells the bot to send tribe logs to their own discord channels. ShowTribeLogsInChat must be enabled.
+
 * `SendServerChatToOwnChannel` tells the bot to send server chat to their own discord channels.
-* `UsePrefixToSendChat` tells the bot to use the PrefixToSendChat or not. If true you have to type the prefix first before your message will be sent. Example /cc hello
+
+* `UsePrefixToSendChat` tells the bot to use the PrefixToSendChat or not. If true you have to type the prefix set in server config first before your message will be sent. Example /all hello will send to all servers. /island hello will send just to the island.
+
 * `UseSupportPrefix` tells the bot to use the SupportPrefix or not. If `true` when you type the supportprefix before your message it will send a message to a set discord channel. Example /help my dinoes are stuck.
+
 * `PingRoleName` tells the bot to ping the set rolename in the support channel or not. `true` it will ping the discord role when it sends a message. `false` it will only send the message it will not ping anyone.
+
 * `ReplyToSupportPing` tells the bot to send a reply message when someone uses the SupportPrefix.
+
 * `SendChatToDiscord` tells the bot to send messages to discord or not. If `true` messages will send as normal. if `false` you will have to use the `PrefixToSendToDiscord` to send messages to discord.
+
 * `PrefixToSendAllServers` is the prefix that will be used if UsePrefixToSendChat is true. This prefix must be typed before the message to send chat. Example /all hello
+
 * `SupportPrefix` is the prefix that will be used if UseSupportPrefix is true. This prefix must be typed before the messaage to send the message to the support channel. Example /help my dinos are stuck.
+
 * `PrefixToSendToDiscord` is the prefix that will be used if `SendChatToDiscord` is `false`. Example /discord hello.
+
 * `SupportRoleToPing` tell the bot which discord rolename to ping if pingrolename is true. Discord role must match the role name exzactly as its listed in your discord server roles tab. This is case sensitive.
+
 * `SupportPingReply` Is the message that will be sent when someone uses the SupportPrefix if `ReplyToSupportPing` is `true`.
 
 Example of adding more than one server to the bot. 
@@ -134,16 +181,22 @@ Notice the , is required for each additional server however the last one doesnt 
     {
       "Map": "MapName",
       "IP": "0.0.0.0",
-      "Port": 00000,
+      "RconPort": 0,
+      "QueryPort": 0,
       "Password": "Password",
-      "ServerChannelId": 00000
+      "Prefix": "/map",
+      "Active": false,
+      "ServerChannelId": 0
     },
     {
       "Map": "MapName",
       "IP": "0.0.0.0",
-      "Port": 00000,
+      "RconPort": 0,
+      "QueryPort": 0,
       "Password": "Password",
-      "ServerChannelId": 00000
+      "Prefix": "/map",
+      "Active": false,
+      "ServerChannelId": 0
     }
   ],
 ```
@@ -154,11 +207,13 @@ Notice the , is required for each additional tribe however the last one doesnt h
 "TribeIDs":[
     {
       "TribeId": "00000",
-      "TribeDiscordId": 00000
+      "Active": false,
+      "TribeDiscordId": 0
     },
     {
       "TribeId": "00000",
-      "TribeDiscordId": 00000
+      "Active": false,
+      "TribeDiscordId": 0
     }
   ],
 
@@ -169,8 +224,10 @@ Example config for version without discord.
     {
       "Map": "MapNameNoSpace",
       "IP": "0.0.0.0",
-      "Port": 00000,
-      "Password": "Password"
+      "RconPort": 0,
+      "Password": "Password",
+      "Prefix": "/map",
+      "Active": false
     }
   ],
   
@@ -179,7 +236,7 @@ Example config for version without discord.
     "AdminCommandLogging": false,
     "ShowTribeLogsInChat": false,
     "UsePrefixToSendChat": false,
-    "PrefixToSendChat": "/cc"
+    "PrefixToSendChat": "/all"
     }
 }
 ```
@@ -191,28 +248,33 @@ Example config for version with discord.
     {
       "Map": "MapNameNoSpace",
       "IP": "0.0.0.0",
-      "Port": 00000,
+      "RconPort": 0,
+      "QueryPort": 0,
       "Password": "Password",
-      "ServerChannelId": 00000
+      "Prefix": "/map",
+      "Active": false,
+      "ServerChannelId": 0
     }
   ],
   
   "TribeIDs":[
     {
       "TribeId": "00000",
-      "TribeDiscordId": 00000
+      "Active": false,
+      "TribeDiscordId": 0
     },
     {
       "TribeId": "00000",
-      "TribeDiscordId": 00000
+      "Active": false,
+      "TribeDiscordId": 0
     }
   ],
  
   "DiscordSettings": {
-    "DiscordChannelID": 00000,
-    "TribeLogsDiscordChannelID": 0000,
-    "AdminCommandsDiscordChannelID": 0000,
-    "SupportChannelID": 0000,
+    "DiscordChannelID": 0,
+    "TribeLogsDiscordChannelID": 0,
+    "AdminCommandsDiscordChannelID": 0,
+    "SupportChannelID": 0,
     "prefix": "d!",
     "DiscordChatPrefix": "Discord",
     "DiscordToken": "00000",
@@ -295,11 +357,98 @@ Example _discordroles.json
     "SetTimeOfDay": "rolename",
     "ShowMessageOfTheDay": "rolename",
     "Slomo": "rolename",
-    "UnBanPlayer": "rolename"
+    "UnBanPlayer": "rolename",
+    "PurgeMessage": "rolename",
+    "StartChat": "rolename",
+    "StopChat": "rolename",
+    "RestartChat": "rolename",
+    "ClearChat": "rolename",
+    "ServerList": "rolename",
+    "ServerInfo": "rolename"
   }
 }
 ```
 
+### Configuration for _timedcommands.json
+
+Basic formating for the config should look like this. If your not using the rcon command timers you can skip this.
+
+Below are three exzamples of how you can configure your timers.
+
+* `Name`: Name of the timer should be different than the other timers.
+
+* `Server`: Name of the server to run it on. This should match the map name. You can also say all to run it on all active servers.
+
+* `Commands`: List of all commands for the timer to run.
+
+* `Command`: Name of the command to run OR type message to send. For list of commands see the discord role config above.
+
+* `Type`: You have two types Command for rcon commands and Broadcast for sending messages. The type depends on what you have in command.
+
+* `Active`: Set to `true` to active it or `false` for bot to ignore it.
+
+* `Frequency`: You have three options here minute, hour, day for how often it happens.
+
+* `Timespan`: The interval you want it to run based on the Frequency.
+
+* `TimeOffset`: 24 hour format of when time of day you want the timer to start from. So instead of just every random hour you can tell it to do every hour after 4am.
+
+```json
+{
+  "TimedCommands": [
+    {
+      "Name": "Test 1",
+      "Server": "",
+      "Commands": [
+        {
+          "Command": "messageoftheday",
+          "Type": "Command"
+        }
+      ],
+      "Active": "false",
+      "Frequency": "minute",
+      "Timespan": "30",
+      "TimeOffset": "00:00:00"
+    },
+    {
+      "Name": "Test 2",
+      "Server": "",
+      "Commands": [
+        {
+          "Command": "About to save the world",
+          "Type": "Broadcast"
+        },
+        {
+          "Command": "saveworld",
+          "Type": "Command"
+        }
+      ],
+      "Active": "false",
+      "Frequency": "hour",
+      "Timespan": "1",
+      "TimeOffset": "00:00:00"
+    },
+    {
+      "Name": "Test 3",
+      "Server": "",
+      "Commands": [
+        {
+          "Command": "About to wipe all wild dinos",
+          "Type": "Broadcast"
+        },
+        {
+          "Command": "wilddinowipe",
+          "Type": "Command"
+        }
+      ],
+      "Active": "false",
+      "Frequency": "day",
+      "Timespan": "1",
+      "TimeOffset": "00:00:00"
+    }
+  ]
+}
+```
 
 ## Discord set up
 
