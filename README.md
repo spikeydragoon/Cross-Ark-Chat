@@ -459,10 +459,10 @@ Steps on how to get your discord tokens and channel ids.
 
 You have to create a discord bot user to get the token and to be able to add the bot to your discord server.
 
-* You need to go to the Discord Developers section [here](https://discordapp.com/developers/applications/me) and click `New Application`
-* Now name your bot and if wanted provide a picture and opitionaly you can give your bot a discription that will show up in the bots profile however this is not needed. The name given and picture is what will show up in your discord channel when the bot is online.
-* Click `Create Application` and on the next page scroll down until you see `Create a bot user` and click the button. Confirm by clicking `Yes, do it~`
-* Now you can get your bot's token by using the `click to reveal` button in the App Bot User section. Note this is special and shouldnt be shared with anyone. Anyone that has this token can use it to mess with your discord server and bot. If you already have your token to someone then go back to where it says click to reveal and click generate new token.
+* You need to go to the Discord Developers section [here](https://discordapp.com/developers/applications) and click `Create an Application`
+* Now name your bot then hit `Save Changes`. If you want you can provide a picture and you can give your bot a discription that will show up in the bots profile however this is not needed. The name given and picture is what will show up in your discord channel when the bot is online.
+* On the left Click `Bot` then click `Add bot`. Confirm by clicking `Yes, do it~`
+* Now you can get your bot's token by using the `click to reveal token` button. Note this is special and shouldnt be shared with anyone. Anyone that has this token can use it to mess with your discord server and bot. If you already gave your token to someone then go back to where it says click to reveal and click `Regenerate`.
 * Paste the bot token in the `_configuration.json` file where it says `DiscordToken`
 
 
@@ -470,8 +470,8 @@ You have to create a discord bot user to get the token and to be able to add the
 
 You now have to add the bot to your discord server and give it permissions.
 
-* You need to go to the Discord Developers section [here](https://discordapp.com/developers/applications/me) and click on the bot you created in the steps above.
-* Under App Details copy the Client ID.
+* You need to go to the Discord Developers section [here](https://discordapp.com/developers/applications) and click on the bot you created in the steps above.
+* Under General Information copy the Client ID.
 * In your browser type in `https://discordapp.com/oauth2/authorize?&client_id=YOUR_CLIENT_ID_HERE&scope=bot&permissions=0` Replace where it says You_Client_Id_Here with the Bot Client ID that you copyed above. Example `https://discordapp.com/oauth2/authorize?&client_id=123456789&scope=bot&permissions=0`
 * Once this page loads up select the server you want to add the bot to. Note you must have the Manage Server permission on the server you are tring to invite the bot to.
 * Click `Authorize`
