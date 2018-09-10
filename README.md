@@ -118,6 +118,16 @@ For Non Discord Version of settings.
 
 * `PrefixToSendChat` is the prefix that will be used if UsePrefixToSendChat is true. This prefix must be typed before the message to send chat. Example /cc hello
 
+* `LogErrors` tells the bot to log errors.
+
+* `LogChat` tells the bot to log chat.
+
+* `LogAdminCommands` tells the bot to log admin commands if `showadmincommands` is set to `true`
+
+* `LogTribeChat` tells the bot to log tribe chat if `showtribelogsinchat` is set to `true`
+
+* `UseGameCommands` tells the bot to enable the CustomGame Commands opition.
+
 For Discord Version of Settings
 
 For Tribe settings.
@@ -126,6 +136,14 @@ For Tribe settings.
 * `Active`: is used to tell the bot if the server should be used or not. `true` means bot will load it `false` means bot will ignore it.
 
 * `TribeDiscordId` is the discord channel id that the server should send messages to if SendTribeLogsToOwnChannel is enabled.
+
+For Game Command Settings.
+
+* `Command` is the in-game prefix used to run the command reply.
+
+* `Commandreply` is the reply the bot gives when running the Above command.
+
+* `Active` tells the bot to use the command or not if the UseGameCommands is set to `true`
 
 For Discord Settings.
 * `DiscordChannelID` is the id of the channel you want the bot to send all the chat messages to and from.
@@ -163,6 +181,16 @@ For Discord Settings.
 * `ReplyToSupportPing` tells the bot to send a reply message when someone uses the SupportPrefix.
 
 * `SendChatToDiscord` tells the bot to send messages to discord or not. If `true` messages will send as normal. if `false` you will have to use the `PrefixToSendToDiscord` to send messages to discord.
+
+* `LogErrors` tells the bot to log errors.
+
+* `LogChat` tells the bot to log chat.
+
+* `LogAdminCommands` tells the bot to log admin commands if `showadmincommands` is set to `true`
+
+* `LogTribeChat` tells the bot to log tribe chat if `showtribelogsinchat` is set to `true`
+
+* `UseGameCommands` tells the bot to enable the CustomGame Commands opition.
 
 * `PrefixToSendAllServers` is the prefix that will be used if UsePrefixToSendChat is true. This prefix must be typed before the message to send chat. Example /all hello
 
@@ -216,17 +244,58 @@ Notice the , is required for each additional tribe however the last one doesnt h
       "TribeDiscordId": 0
     }
   ],
+```
+
+Example of adding more than one Game Command to the bot.
+
+```json
+"GameCommands": [
+    {
+      "Command": "!discord",
+      "CommandReply": "https://discord.gg/",
+      "Active": false
+    },
+    {
+      "Command": "rules",
+      "CommandReply": "These are the rules.",
+      "Active": false
+    },
+    {
+      "Command": "/ping",
+      "CommandReply": "Pong!",
+      "Active": false
+    }
+  ],
+```
 
 Example config for version without discord.
 ```json
 {
   "Servers": [
     {
-      "Map": "MapNameNoSpace",
+      "Map": "map",
       "IP": "0.0.0.0",
       "RconPort": 0,
-      "Password": "Password",
+      "Password": "password",
       "Prefix": "/map",
+      "Active": false
+    }
+  ],
+  
+  "GameCommands": [
+    {
+      "Command": "!discord",
+      "CommandReply": "https://discord.gg/",
+      "Active": false
+    },
+    {
+      "Command": "rules",
+      "CommandReply": "These are the rules.",
+      "Active": false
+    },
+    {
+      "Command": "/ping",
+      "CommandReply": "Pong!",
       "Active": false
     }
   ],
@@ -236,7 +305,12 @@ Example config for version without discord.
     "AdminCommandLogging": false,
     "ShowTribeLogsInChat": false,
     "UsePrefixToSendChat": false,
-    "PrefixToSendChat": "/all"
+    "LogErrors": true,
+    "LogChat": true,
+    "LogAdminCommands": true,
+    "LogTribeChat": true,
+    "UseGameCommands": false,
+    "PrefixToSendAllServers": "/all"
     }
 }
 ```
@@ -246,7 +320,7 @@ Example config for version with discord.
 {
   "Servers": [
     {
-      "Map": "MapNameNoSpace",
+      "Map": "Map",
       "IP": "0.0.0.0",
       "RconPort": 0,
       "QueryPort": 0,
@@ -269,6 +343,24 @@ Example config for version with discord.
       "TribeDiscordId": 0
     }
   ],
+  
+  "GameCommands": [
+    {
+      "Command": "!discord",
+      "CommandReply": "https://discord.gg/",
+      "Active": false
+    },
+    {
+      "Command": "rules",
+      "CommandReply": "These are the rules.",
+      "Active": false
+    },
+    {
+      "Command": "/ping",
+      "CommandReply": "Pong!",
+      "Active": false
+    }
+  ],
  
   "DiscordSettings": {
     "DiscordChannelID": 0,
@@ -289,6 +381,11 @@ Example config for version with discord.
     "PingRoleName": true,
     "ReplyToSupportPing": false,
     "SendChatToDiscord": true,
+    "LogErrors": true,
+    "LogChat": true,
+    "LogAdminCommands": true,
+    "LogTribeChat": true,
+    "UseGameCommands": false,
     "PrefixToSendAllServers": "/all",
     "SupportPrefix": "/help",
     "PrefixToSendToDiscord": "/discord",
