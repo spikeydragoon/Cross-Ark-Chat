@@ -68,7 +68,7 @@ Role names must be exzactly how they are listed in your discord server settings 
 
 4a:For linux/redhat use `./CrossArkChat` or `./CrossDiscordArkChat` to start the bot. You must start the bot from the folder the bot is in.
 If you want the bot to run in background so you dont have to stay logged in you can run `nohup ./CrossArkChat &` or `nohup ./CrossDiscordArkChat &` Note the & is very important and it will not work if thats not there.
-To find the pid run `pc -ef | grep CrossArkChat` or `pc -ef | grep CrossDiscordArkChat`.
+To find the pid run `ps -ef | grep CrossArkChat` or `ps -ef | grep CrossDiscordArkChat`.
 Once you have the pid run `kill 1234 1234` to end program nicely or `kill -9 1234 1234` to force close it. Replace the 1234 1234 with the pid you find from the above command.
 
 
