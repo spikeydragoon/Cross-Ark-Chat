@@ -1,17 +1,29 @@
 # Cross-Ark-Chat
 
-Cross Ark Chat connects all of your Ark Survival Evolved Servers chat together allowing you to talk to anyone from anywhere on your servers/clusters. I have added support to link in a discord channel so you can talk with your players from discord.
-You can also enable tribe logs to be sent to your discord channel.
+Cross Ark Chat connects all of your Ark Survival Evolved Servers chat together allowing you to talk to anyone from anywhere on your servers/clusters. Cross Ark Chat also has discord support to allow talking to and from servers using discord.
 
 This program uses pure Rcon so it can be ran from anywhere however for best performance i would run it from the same pc that is hosting your Ark servers.
 
-Since this program uses Rcon i did add in some rcon commands in the discord version.
-
-This is what chat looks like depending on your settings.
+Some things you can do.(Can do more but these are the main things)
 ```
-Discord: (spikeydragoon): Hello all!
-Island: (spikeydragoon): Hello all!
-Center: (spikeydragoon): Hello all!
+Talk to any server even if they are not on the same network or in same cluster. (Does require knowing the ip and admin password)
+
+Run any rcon command even ones that are added in via Ark api system. (Rcon commands only work using discord)
+
+Talk to your servers from discord.
+
+Set up discord roles to limit who can use what rcon command. (Usefull for giving mods some commands without full access)
+
+Get tribe logs sent to discord so tribes can keep track of whats going on in-game.
+
+Set rcon commands to run on a timer.
+```
+
+This is what chat looks like depending on your settings. (Note i can't change the yellow font/size. This is a limit of arks current rcon system.)
+```
+Discord: (spikeydragoon): Hello from discord!
+Island: (spikeydragoon): Hello from the island!
+Center: (spikeydragoon): Hello from the center!
 ```
 
 Read the [CONTRIBUTING.md](https://github.com/spikeydragoon/Cross-Ark-Chat/blob/master/CONTRIBUTING.md) file before submitting a issue.
@@ -64,6 +76,8 @@ If you dont plan to use badword filters then can just ignore this file. Do not d
 3b: Optionally if you want to use rcon commands from discord you must set up the role names in `_discordroles.json`.
 Role names must be exzactly how they are listed in your discord server settings / role tab. This is case sensitive.
 
+3c: Optionally if you want to use timed rcon commands you must set up the commands in `_timedcommands.json`.
+
 4:Launch the program.exe and enjoy. 
 
 4a:For linux/redhat use `./CrossArkChat` or `./CrossDiscordArkChat` to start the bot. You must start the bot from the folder the bot is in.
@@ -82,13 +96,22 @@ At the bottom it will show examples for the versions with and without discord as
 
 Basic formating for the config should look like this.
 
-For version checker.
-Do not change anything in this part. This is used by the bot to check to see if a new version is avaiable at startup.
+For Application Settings.
+* `VersionCheckUrl`: This should be left as is. The bot uses this to check if its running the latest version or not.
+
+* `LogErrors`: `True` for the bot to log errors to the error file `False` to ignore errors. This is good for debugging to see what is going on if its not working.
+
+* `UseDiscord`: `True` to use discord `false` to use only rcon. This is for servers who only want cross chat and not discord. 
+
+Example of what the default looks like.
 ```json
 "ApplicationSettings": {
-    "VersionCheckUrl": "https://raw.githubusercontent.com/spikeydragoon/Cross-Ark-Chat/master/version.txt"
+    "VersionCheckUrl": "https://raw.githubusercontent.com/spikeydragoon/Cross-Ark-Chat/master/version.txt",
+    "LogErrors": true,
+    "UseDiscord": true
   },
 ```
+
 For Server Settings
 * `Map`: is the name of your map. This should not contain spaces or special characters as it will cause the program to not work properly. This is also used for the chat prefix for the server if you have it enabled.
 
@@ -107,28 +130,21 @@ You should not use your own public ip as this will cause problems.
 
 * `ServerChannelId`: is the discord channel id that the server should send messages to if SendServerChatToOwnChannel is enabled.
 
-For Non Discord Version of settings.
-* `ShowAdminCommands` tells the bot to either show or hide admin commands. `true` is to show commands and `false` is to hide them.
-
-* `AdminCommandLogging` tells the bot to log admin commands. `true` is to log admin commands to its own log file. `false` is to not log admin commands.
-
-* `ShowTribeLogsInChat` tells the bot to either show or hide tribe logs in chat. `true` is to show tribe logs in chat `false` is to hide them. This only matters if you have show Tribe logs in Rcon enabled in your Ark Server Settings. This settings is mostly for people that wanted to have tribe logs in rcon however dont want it showing up in the bot.
-
-* `UsePrefixToSendChat` tells the bot to use the PrefixToSendChat or not. If true you have to type the prefix first before your message will be sent. Example /cc hello
-
-* `PrefixToSendChat` is the prefix that will be used if UsePrefixToSendChat is true. This prefix must be typed before the message to send chat. Example /cc hello
-
-* `LogErrors` tells the bot to log errors.
-
-* `LogChat` tells the bot to log chat.
-
-* `LogAdminCommands` tells the bot to log admin commands if `showadmincommands` is set to `true`
-
-* `LogTribeChat` tells the bot to log tribe chat if `showtribelogsinchat` is set to `true`
-
-* `UseGameCommands` tells the bot to enable the CustomGame Commands opition.
-
-For Discord Version of Settings
+Example of what the default looks like.
+```json
+"Servers": [
+    {
+      "Map": "Map",
+      "IP": "0.0.0.0",
+      "RconPort": 0,
+      "QueryPort": 0,
+      "Password": "Password",
+      "Prefix": "/map",
+      "Active": false,
+      "ServerChannelId": 0
+    }
+  ],
+```
 
 For Tribe settings.
 * `TribeId`: is the in-game tribe id.
@@ -137,70 +153,147 @@ For Tribe settings.
 
 * `TribeDiscordId` is the discord channel id that the server should send messages to if SendTribeLogsToOwnChannel is enabled.
 
+Example of what the default looks like.
+```json
+"TribeIDs": [
+    {
+      "TribeId": "00000",
+      "Active": false,
+      "TribeDiscordId": 0
+    }
+  ],
+```
+
 For Game Command Settings.
 
-* `Command` is the in-game prefix used to run the command reply.
+* `Command`: is the in-game prefix used to run the command reply.
 
-* `Commandreply` is the reply the bot gives when running the Above command.
+* `Commandreply`: is the reply the bot gives when running the Above command.
 
-* `Active` tells the bot to use the command or not if the UseGameCommands is set to `true`
+* `Active`: tells the bot to use the command or not if the UseGameCommands is set to `true`
+
+Example of what the default looks like.
+```json
+"GameCommands": [
+    {
+      "Command": "/ping",
+      "CommandReply": "Pong!",
+      "Active": false
+    }
+  ],
+```
+
+For Custom Tags list.
+
+You just put all the tags you want the bot to filter out. This is used for plugins/mods that use their own tags in chat. Example is ACM uses ACM[CMD] to tag all of the admin commands.
+When adding your tags make sure you add an extra one for SERVER: yourtag this is due to how it pulls chat from the other servers. Without both it would still send/spam the servers.
+
+Example of what the default looks like.
+```json
+"CustomTagList": [
+    "ACM[CMD]",
+    "SERVER: ACM[CMD]"
+  ],
+```
+
+For Chat settings.
+* `ShowAdminCommands`: tells the bot to either show or hide admin commands. `true` is to show commands and `false` is to hide them.
+
+* `SendAdminCommandsToOWnChannel`: tells the bot to send admin commands to its own channel. `true` is to give admin commands its own discord channe. `false` is to keep them going to the same channel if showadmincommands is enabled.
+
+* `ShowTribeLogsInChat`: tells the bot to either show or hide tribe logs in chat. `true` is to show tribe logs in chat `false` is to hide them. This only matters if you have show Tribe logs in Rcon enabled in your Ark Server Settings. This settings is mostly for people that wanted to have tribe logs in rcon however dont want it showing up in the bot.
+
+* `UsePrefixToSendChat`: tells the bot to use the PrefixToSendChat or not. If true you have to type the prefix first before your message will be sent. Example /Island hello
+
+* `UseCustomTags`: `True` to filter the custom tags. `False` to ignore custom tags.
+
+* `LogChat`: tells the bot to log chat.
+
+* `LogAdminCommands`: tells the bot to log admin commands if `showadmincommands` is set to `true`
+
+* `LogTribeChat`: tells the bot to log tribe chat if `showtribelogsinchat` is set to `true`
+
+* `UseGameCommands`: tells the bot to enable the CustomGame Commands opition.
+
+* `PrefixToSendAllServers`: is the prefix that will be used if UsePrefixToSendChat is true. This prefix must be typed before the message to send chat. Example /all hello
+
+Example of what the default looks like.
+```json
+"ChatSettings": {
+    "ShowAdminCommands": false,
+    "SendAdminCommandsToOwnChannel": false,
+    "ShowTribelogsInChat": false,
+    "UsePrefixToSendChat": false,
+    "UseCustomTags": false,
+    "LogChat": true,
+    "LogAdminCommands": true,
+    "LogTribeLogs": true,
+    "UseGameCommands": false,
+    "PrefixToSendAllServers": "/all"
+  },
+```
 
 For Discord Settings.
-* `DiscordChannelID` is the id of the channel you want the bot to send all the chat messages to and from.
 
-* `TribeLogsDiscordChannelID` is the id of the channel you want the bot to send tribe logs to if you have them enabled. Note this can be the same as the DiscordChannelID if you want both to show in same chat.
+* `DiscordChannelID`: is the id of the channel you want the bot to send all the chat messages to and from.
 
-* `AdminCommandsDiscordChannelID` is the id of the channel you want the bot to send admin commands to if you have them enabled.
+* `TribeLogsDiscordChannelID`: is the id of the channel you want the bot to send tribe logs to if you have them enabled. Note this can be the same as the DiscordChannelID if you want both to show in same chat.
 
-* `SupportChannelID` is the id of the channel you want the bot to send support tickets to if enabled.
+* `AdminCommandsDiscordChannelID`: is the id of the channel you want the bot to send admin commands to if you have them enabled.
 
-* `prefix` is the tag you use in discord when sending commands.
+* `SupportChannelID`: is the id of the channel you want the bot to send support tickets to if enabled.
 
-* `DiscordChatPrefix` is the chat prefix used in-game when sending messages from discord.
+* `prefix`: is the tag you use in discord when sending commands.
 
-* `DiscordToken` is the Discord Bot Token required for the bot to connect to your server.
+* `DiscordChatPrefix`: is the chat prefix used in-game when sending messages from discord.
 
-* `ShowAdminCommands` tells the bot to either show or hide admin commands. `true` is to show commands and `false` is to hide them.
+* `DiscordToken`: is the Discord Bot Token required for the bot to connect to your server.
 
-* `SendAdminCommandsToOWnChannel` tells the bot to send admin commands to its own channel. `true` is to give admin commands its own discord channe. `false` is to keep them going to the same channel if showadmincommands is enabled.
+* `ShowChatPrefixInDiscord`: tells the bot to either show or hide the chat prefix in discord. This is mainly for people who only have one server. `true` shows the chat prefix(MapName) in discord `false` hides the prefix.
 
-* `ShowChatPrefixInDiscord` tells the bot to either show or hide the chat prefix in discord. This is mainly for people who only have one server. `true` shows the chat prefix(MapName) in discord `false` hides the prefix.
+* `SendTribeLogsToOwnChannel`: tells the bot to send tribe logs to their own discord channels. ShowTribeLogsInChat must be enabled.
 
-* `ShowTribeLogsInChat` tells the bot to either show or hide tribe logs in discord. This only matters if you have show Tribe logs in Rcon enabled in your Ark Server Settings.
+* `SendServerChatToOwnChannel`: tells the bot to send server chat to their own discord channels.
 
-* `SendTribeLogsToOwnChannel` tells the bot to send tribe logs to their own discord channels. ShowTribeLogsInChat must be enabled.
+* `UseSupportPrefix`: tells the bot to use the SupportPrefix or not. If `true` when you type the supportprefix before your message it will send a message to a set discord channel. Example /help my dinoes are stuck.
 
-* `SendServerChatToOwnChannel` tells the bot to send server chat to their own discord channels.
+* `PingRoleName`: tells the bot to ping the set rolename in the support channel or not. `true` it will ping the discord role when it sends a message. `false` it will only send the message it will not ping anyone.
 
-* `UsePrefixToSendChat` tells the bot to use the PrefixToSendChat or not. If true you have to type the prefix set in server config first before your message will be sent. Example /all hello will send to all servers. /island hello will send just to the island.
+* `ReplyToSupportPing`: tells the bot to send a reply message when someone uses the SupportPrefix.
 
-* `UseSupportPrefix` tells the bot to use the SupportPrefix or not. If `true` when you type the supportprefix before your message it will send a message to a set discord channel. Example /help my dinoes are stuck.
+* `SendChatToDiscord`: tells the bot to send messages to discord or not. If `true` messages will send as normal. if `false` you will have to use the `PrefixToSendToDiscord` to send messages to discord.
 
-* `PingRoleName` tells the bot to ping the set rolename in the support channel or not. `true` it will ping the discord role when it sends a message. `false` it will only send the message it will not ping anyone.
+* `SupportPrefix`: is the prefix that will be used if UseSupportPrefix is true. This prefix must be typed before the messaage to send the message to the support channel. Example /help my dinos are stuck.
 
-* `ReplyToSupportPing` tells the bot to send a reply message when someone uses the SupportPrefix.
+* `PrefixToSendToDiscord`: is the prefix that will be used if `SendChatToDiscord` is `false`. Example /discord hello.
 
-* `SendChatToDiscord` tells the bot to send messages to discord or not. If `true` messages will send as normal. if `false` you will have to use the `PrefixToSendToDiscord` to send messages to discord.
+* `SupportRoleToPing`: tell the bot which discord rolename to ping if pingrolename is true. Discord role must match the role name exzactly as its listed in your discord server roles tab. This is case sensitive.
 
-* `LogErrors` tells the bot to log errors.
+* `SupportPingReply`: Is the message that will be sent when someone uses the SupportPrefix if `ReplyToSupportPing` is `true`.
 
-* `LogChat` tells the bot to log chat.
-
-* `LogAdminCommands` tells the bot to log admin commands if `showadmincommands` is set to `true`
-
-* `LogTribeChat` tells the bot to log tribe chat if `showtribelogsinchat` is set to `true`
-
-* `UseGameCommands` tells the bot to enable the CustomGame Commands opition.
-
-* `PrefixToSendAllServers` is the prefix that will be used if UsePrefixToSendChat is true. This prefix must be typed before the message to send chat. Example /all hello
-
-* `SupportPrefix` is the prefix that will be used if UseSupportPrefix is true. This prefix must be typed before the messaage to send the message to the support channel. Example /help my dinos are stuck.
-
-* `PrefixToSendToDiscord` is the prefix that will be used if `SendChatToDiscord` is `false`. Example /discord hello.
-
-* `SupportRoleToPing` tell the bot which discord rolename to ping if pingrolename is true. Discord role must match the role name exzactly as its listed in your discord server roles tab. This is case sensitive.
-
-* `SupportPingReply` Is the message that will be sent when someone uses the SupportPrefix if `ReplyToSupportPing` is `true`.
+Example of what the default looks like.
+```json
+"DiscordSettings": {
+    "DiscordChannelID": 0,
+    "TribeLogsDiscordChannelID": 0,
+    "AdminCommandsDiscordChannelID": 0,
+    "SupportChannelID": 0,
+    "prefix": "d!",
+    "DiscordChatPrefix": "Discord",
+    "DiscordToken": "BotToken",
+    "ShowChatPrefixInDiscord": true,
+    "SendTribeLogsToOwnChannel": false,
+    "SendServerChatToOwnChannel": false,
+    "UseSupportPrefix": false,
+    "PingRoleName": false,
+    "ReplyToSupportPing": true,
+    "SendChatToDiscord": true,
+    "SupportPrefix": "/help",
+    "PrefixToSendToDiscord": "/discord",
+    "SupportRoleToPing": "rolename",
+    "SupportPingReply": "Your support ticket has been sent."
+  }
+```
 
 Example of adding more than one server to the bot. 
 Notice the , is required for each additional server however the last one doesnt have one. This is important as if you dont put the , where needed the bot will not work.
@@ -268,57 +361,34 @@ Example of adding more than one Game Command to the bot.
   ],
 ```
 
-Example config for version without discord.
+Example of adding more than one Custom Tag.
 ```json
-{
-  "Servers": [
-    {
-      "Map": "map",
-      "IP": "0.0.0.0",
-      "RconPort": 0,
-      "Password": "password",
-      "Prefix": "/map",
-      "Active": false
-    }
+"CustomTagList": [
+    "ACM[CMD]",
+    "SERVER: ACM[CMD]"
   ],
-  
-  "GameCommands": [
-    {
-      "Command": "!discord",
-      "CommandReply": "https://discord.gg/",
-      "Active": false
-    },
-    {
-      "Command": "rules",
-      "CommandReply": "These are the rules.",
-      "Active": false
-    },
-    {
-      "Command": "/ping",
-      "CommandReply": "Pong!",
-      "Active": false
-    }
-  ],
-  
-  "CrossChatSettings":{
-    "ShowAdminCommands": false,
-    "AdminCommandLogging": false,
-    "ShowTribeLogsInChat": false,
-    "UsePrefixToSendChat": false,
-    "LogErrors": true,
-    "LogChat": true,
-    "LogAdminCommands": true,
-    "LogTribeChat": true,
-    "UseGameCommands": false,
-    "PrefixToSendAllServers": "/all"
-    }
-}
 ```
 
-Example config for version with discord.
+Example default config
 ```json
 {
+  "ApplicationSettings": {
+    "VersionCheckUrl": "https://raw.githubusercontent.com/spikeydragoon/Cross-Ark-Chat/master/version.txt",
+    "LogErrors": true,
+    "UseDiscord": true
+  },
+
   "Servers": [
+    {
+      "Map": "Map",
+      "IP": "0.0.0.0",
+      "RconPort": 0,
+      "QueryPort": 0,
+      "Password": "Password",
+      "Prefix": "/map",
+      "Active": false,
+      "ServerChannelId": 0
+    },
     {
       "Map": "Map",
       "IP": "0.0.0.0",
@@ -330,8 +400,8 @@ Example config for version with discord.
       "ServerChannelId": 0
     }
   ],
-  
-  "TribeIDs":[
+
+  "TribeIDs": [
     {
       "TribeId": "00000",
       "Active": false,
@@ -343,7 +413,7 @@ Example config for version with discord.
       "TribeDiscordId": 0
     }
   ],
-  
+
   "GameCommands": [
     {
       "Command": "!discord",
@@ -361,7 +431,25 @@ Example config for version with discord.
       "Active": false
     }
   ],
- 
+
+  "CustomTagList": [
+    "ACM[CMD]",
+    "SERVER: ACM[CMD]"
+  ],
+
+  "ChatSettings": {
+    "ShowAdminCommands": false,
+    "SendAdminCommandsToOwnChannel": false,
+    "ShowTribelogsInChat": false,
+    "UsePrefixToSendChat": false,
+    "UseCustomTags": false,
+    "LogChat": true,
+    "LogAdminCommands": true,
+    "LogTribeLogs": true,
+    "UseGameCommands": false,
+    "PrefixToSendAllServers": "/all"
+  },
+
   "DiscordSettings": {
     "DiscordChannelID": 0,
     "TribeLogsDiscordChannelID": 0,
@@ -369,24 +457,14 @@ Example config for version with discord.
     "SupportChannelID": 0,
     "prefix": "d!",
     "DiscordChatPrefix": "Discord",
-    "DiscordToken": "00000",
-    "ShowAdminCommands": false,
-    "SendAdminCommandsToOwnChannel": false,
+    "DiscordToken": "BotToken",
     "ShowChatPrefixInDiscord": true,
-    "ShowTribelogsInChat": false,
     "SendTribeLogsToOwnChannel": false,
     "SendServerChatToOwnChannel": false,
-    "UsePrefixToSendChat": false,
     "UseSupportPrefix": false,
-    "PingRoleName": true,
-    "ReplyToSupportPing": false,
+    "PingRoleName": false,
+    "ReplyToSupportPing": true,
     "SendChatToDiscord": true,
-    "LogErrors": true,
-    "LogChat": true,
-    "LogAdminCommands": true,
-    "LogTribeChat": true,
-    "UseGameCommands": false,
-    "PrefixToSendAllServers": "/all",
     "SupportPrefix": "/help",
     "PrefixToSendToDiscord": "/discord",
     "SupportRoleToPing": "rolename",
@@ -394,7 +472,6 @@ Example config for version with discord.
   }
 }
 ```
-
 
 ### Configuration for _wordfilter.json
 
@@ -460,6 +537,7 @@ Example _discordroles.json
     "StopChat": "rolename",
     "RestartChat": "rolename",
     "ClearChat": "rolename",
+    "RebootProgram": "rolename",
     "ServerList": "rolename",
     "ServerInfo": "rolename"
   }
