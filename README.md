@@ -17,6 +17,10 @@ Set up discord roles to limit who can use what rcon command. (Usefull for giving
 Get tribe logs sent to discord so tribes can keep track of whats going on in-game.
 
 Set rcon commands to run on a timer.
+
+Show join and leave notificaitons
+
+Replace unicode based words/letters with non unicode based letters/words (This doesnt fix Arks rcon not supporting unicode but does help some)
 ```
 
 This is what chat looks like depending on your settings. (Note i can't change the yellow font/size. This is a limit of arks current rcon system.)
@@ -24,6 +28,9 @@ This is what chat looks like depending on your settings. (Note i can't change th
 Discord: (spikeydragoon): Hello from discord!
 Island: (spikeydragoon): Hello from the island!
 Center: (spikeydragoon): Hello from the center!
+
+Player Spikeydragoon joined the island server.
+Player Spikeydragoon left the island server.
 ```
 
 Read the [CONTRIBUTING.md](https://github.com/spikeydragoon/Cross-Ark-Chat/blob/master/CONTRIBUTING.md) file before submitting a issue.
@@ -70,7 +77,7 @@ For tribe logs you must have log tribe logs to rcon enabled in the Ark Server Se
 
 3:Open the folder you extracted and configure the programs settings in `_configuration.json`.
 
-3a:Optionally if you want to setup a badword list then configure settings in `_wordfilter.json`.
+3a:Optionally if you want to setup a badword list or word replacement then configure settings in `_wordfilter.json`.
 If you dont plan to use badword filters then can just ignore this file. Do not delete this file as program wont run if its missing.
 
 3b: Optionally if you want to use rcon commands from discord you must set up the role names in `_discordroles.json`.
@@ -243,6 +250,8 @@ For Discord Settings.
 
 * `SupportChannelID`: is the id of the channel you want the bot to send support tickets to if enabled.
 
+* `JoinLeaveNotificationsDiscordChannelID`: is the id of the channel you want the bot to send join/leave notifications if enabled.
+
 * `prefix`: is the tag you use in discord when sending commands.
 
 * `DiscordChatPrefix`: is the chat prefix used in-game when sending messages from discord.
@@ -256,6 +265,12 @@ For Discord Settings.
 * `SendServerChatToOwnChannel`: tells the bot to send server chat to their own discord channels.
 
 * `UseSupportPrefix`: tells the bot to use the SupportPrefix or not. If `true` when you type the supportprefix before your message it will send a message to a set discord channel. Example /help my dinoes are stuck.
+
+* `UseJoinLeaveNotifications`: Tells the bot to send join/leave notifications to discord.
+
+* `SendJoinLeaveNotificationsToServerOwnChannel`: Tells the bot to send the join/leave notifications to the servers own channel.
+
+* `UseWordReplacementList`: Tells the bot to use the word replacement list or not. True to replace words/letters.
 
 * `PingRoleName`: tells the bot to ping the set rolename in the support channel or not. `true` it will ping the discord role when it sends a message. `false` it will only send the message it will not ping anyone.
 
@@ -278,6 +293,7 @@ Example of what the default looks like.
     "TribeLogsDiscordChannelID": 0,
     "AdminCommandsDiscordChannelID": 0,
     "SupportChannelID": 0,
+    "JoinLeaveNotificationsDiscordChannelID": 0,
     "prefix": "d!",
     "DiscordChatPrefix": "Discord",
     "DiscordToken": "BotToken",
@@ -285,6 +301,9 @@ Example of what the default looks like.
     "SendTribeLogsToOwnChannel": false,
     "SendServerChatToOwnChannel": false,
     "UseSupportPrefix": false,
+    "UseJoinLeaveNotifications": false,
+    "SendJoinLeaveNotificationsToServerOwnChannel": false,
+    "UseWordReplacementList": false,
     "PingRoleName": false,
     "ReplyToSupportPing": true,
     "SendChatToDiscord": true,
@@ -455,6 +474,7 @@ Example default config
     "TribeLogsDiscordChannelID": 0,
     "AdminCommandsDiscordChannelID": 0,
     "SupportChannelID": 0,
+    "JoinLeaveNotificationsDiscordChannelID": 0,
     "prefix": "d!",
     "DiscordChatPrefix": "Discord",
     "DiscordToken": "BotToken",
@@ -462,6 +482,9 @@ Example default config
     "SendTribeLogsToOwnChannel": false,
     "SendServerChatToOwnChannel": false,
     "UseSupportPrefix": false,
+    "UseJoinLeaveNotifications": false,
+    "SendJoinLeaveNotificationsToServerOwnChannel": false,
+    "UseWordReplacementList": false,
     "PingRoleName": false,
     "ReplyToSupportPing": true,
     "SendChatToDiscord": true,
@@ -481,14 +504,26 @@ Make sure if you dont use this list then keep the example words in there as if i
 
 Last thing to note is this only deletes the words when the bots sends it to all servers it does not change what the player types in game.
 
+The word replacement list will replace words or letters in chat. Note this is mostly for discord to ark as since ark rcon doesnt support unicode it will still show as a ? when coming from ark.
+
 Example _WordFilter.json
 ```json
 {
   "WordFilterList": [
-  "ExampleWord",
-  "ExampleWords"
-  ]
+    "exampleword",
+    "examplewords"
+  ],
 
+  "WordReplacementList": [
+    {
+      "OldWord": "ö",
+      "Newword": "o"
+    },
+    {
+      "OldWord": "raptor",
+      "Newword": "dragon"
+    }
+  ]
 }
 ```
 
