@@ -203,6 +203,85 @@ Example of what the default looks like.
   ],
 ```
 
+For Rcon Settings.
+
+BIG WARNING do not change anything in this section unless you full undertand what you are doing. Depending on what you change will break the bot. 
+The only reason to change the tags is if your server is set to a different culture. IE fr instead of en. This is due to fr using Tribu instead of Tribe like in the en version so you would need to change that tag so bot can see it.
+If you notice lag when the bot runs you can force the bot to get chat slower by changing the GetchatTimeInMs and the ListPlayersCheckInMS. Note by doing this it may get multi messages at one time due to how arks rcon is coded.
+
+* `NoResponceTag`: This is the responce that ark gives when it receives the command but doesnt have any values to return.
+
+* `NoPlayerTag`: This is the responce that ark gives when there are no players on the server.
+
+* `ServerRepeatTag`: This is the tag that ark puts at the start of a message when it was sent using the serverchat command so it doesnt keep resending it.
+
+* `AdminCMDTag`: This is the tag that Ark puts at the start of admin commands.
+
+* `TribeTag`: This is the tag that ark puts at the start of all tribe logs.
+
+* `GetChatCmd`: This is the command ark uses to get chat from the server.
+
+* `ListPlayersCmd`: This is the command ark uses to get the player list from the server.
+
+* `ListPlayerChatTimeInMs`: This is the frequency in milliseconds that the list player command will run.
+
+* `GetChatTimeInMs`: This is the frequency in milliseconds that the getchat command will run.
+
+* `RconSendTimeoutInMs`: This is the frequency in milliseconds the send commad will wait before timing out.
+
+* `RconReceiveTimeoutInMs`: This is the frequency in milliseconds the receive command will wait before timing out.
+
+* `RconConnectionRetrys`: This is how many times rcon will try to connect to the server before moving on.
+
+Example of what the default looks like.
+```json
+"RconSettings": {
+    "NoResponceTag": "Server received, But no response!!",
+    "NoPlayerTag": "No Players Connected",
+    "ServerRepeatTag": "SERVER:",
+    "AdminCMDTag": "AdminCmd:",
+    "TribeTag": "Tribe",
+    "GetChatCmd": "getchat",
+    "ListPlayersCmd": "ListPlayers",
+    "ListPlayerCheckTimeInMs": 10000,
+    "GetChatTimeInMs": 5,
+    "RconSendTimeoutInMs": 3000,
+    "RconReceiveTimeoutInMs": 10000,
+    "RconConnectionRetrys": 1
+  },
+```
+
+For Player Notification setings.
+
+You can change what the bot says when a player joins and leaves the ark servers. 
+Format looks like this and you can change everything but the location of the {PlayerName} and {MapName}.
+Player {PlayerName} joined the {MapName} server
+Player {PlayerName} left the {MapName} server
+
+* `PlayerJoinStart`: First part of the join notification.
+
+* `PlayerJoinMiddle`: Middle part of the join notification.
+
+* `PlayerJoinEnd`: Last part of the join notification.
+
+* `PlayerLeftStart`: First part of the left notification.
+
+* `PlayerLeftMiddle`: Middle part of the left notification.
+
+* `PlayerLeftEnd`: Last part of the left notification.
+
+Example of what the default looks like.
+```json
+"PlayerNotificationsSettings": {
+    "PlayerJoinStart": "Player",
+    "PlayerJoinMiddle": "joined the",
+    "PlayerJoinEnd": "server",
+    "PlayerLeftStart": "Player",
+    "PlayerLeftMiddle": "left the",
+    "PlayerLeftEnd": "server"
+  },
+```
+
 For Chat settings.
 * `ShowAdminCommands`: tells the bot to either show or hide admin commands. `true` is to show commands and `false` is to hide them.
 
@@ -455,6 +534,30 @@ Example default config
     "ACM[CMD]",
     "SERVER: ACM[CMD]"
   ],
+
+  "RconSettings": {
+    "NoResponceTag": "Server received, But no response!!",
+    "NoPlayerTag": "No Players Connected",
+    "ServerRepeatTag": "SERVER:",
+    "AdminCMDTag": "AdminCmd:",
+    "TribeTag": "Tribe",
+    "GetChatCmd": "getchat",
+    "ListPlayersCmd": "ListPlayers",
+    "ListPlayerCheckTimeInMs": 10000,
+    "GetChatTimeInMs": 5,
+    "RconSendTimeoutInMs": 3000,
+    "RconReceiveTimeoutInMs": 10000,
+    "RconConnectionRetrys": 1
+  },
+
+  "PlayerNotificationsSettings": {
+    "PlayerJoinStart": "Player",
+    "PlayerJoinMiddle": "joined the",
+    "PlayerJoinEnd": "server",
+    "PlayerLeftStart": "Player",
+    "PlayerLeftMiddle": "left the",
+    "PlayerLeftEnd": "server"
+  },
 
   "ChatSettings": {
     "ShowAdminCommands": false,
