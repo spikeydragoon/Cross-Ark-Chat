@@ -87,9 +87,9 @@ Role names must be exzactly how they are listed in your discord server settings 
 
 4:Launch the program.exe and enjoy. 
 
-4a:For linux/redhat use `./CrossArkChat` or `./CrossDiscordArkChat` to start the bot. You must start the bot from the folder the bot is in.
-If you want the bot to run in background so you dont have to stay logged in you can run `nohup ./CrossArkChat &` or `nohup ./CrossDiscordArkChat &` Note the & is very important and it will not work if thats not there.
-To find the pid run `ps -ef | grep CrossArkChat` or `ps -ef | grep CrossDiscordArkChat`.
+4a:For linux/redhat use `./CrossArkChat` to start the bot. You must start the bot from the folder the bot is in.
+If you want the bot to run in background so you dont have to stay logged in you can run `nohup ./CrossArkChat &` Note the & is very important and it will not work if thats not there.
+To find the pid run `ps -ef | grep CrossArkChat`.
 Once you have the pid run `kill 1234 1234` to end program nicely or `kill -9 1234 1234` to force close it. Replace the 1234 1234 with the pid you find from the above command.
 
 
@@ -227,6 +227,8 @@ If you notice lag when the bot runs you can force the bot to get chat slower by 
 
 * `GetChatTimeInMs`: This is the frequency in milliseconds that the getchat command will run.
 
+* `PlayerCountCheckTimeInMs` This is the frequency in milliseconds that the player counter will run.
+
 * `RconSendTimeoutInMs`: This is the frequency in milliseconds the send commad will wait before timing out.
 
 * `RconReceiveTimeoutInMs`: This is the frequency in milliseconds the receive command will wait before timing out.
@@ -245,6 +247,7 @@ Example of what the default looks like.
     "ListPlayersCmd": "ListPlayers",
     "ListPlayerCheckTimeInMs": 10000,
     "GetChatTimeInMs": 5,
+    "PlayerCountCheckTimeInMs": 30000,
     "RconSendTimeoutInMs": 3000,
     "RconReceiveTimeoutInMs": 10000,
     "RconConnectionRetrys": 1
@@ -357,6 +360,8 @@ For Discord Settings.
 
 * `SendChatToDiscord`: tells the bot to send messages to discord or not. If `true` messages will send as normal. if `false` you will have to use the `PrefixToSendToDiscord` to send messages to discord.
 
+* `UsePlayerCountChannelUpdater`: tells the bot to update channel discription with the online play count or not. `true` to use the count updater.
+
 * `SupportPrefix`: is the prefix that will be used if UseSupportPrefix is true. This prefix must be typed before the messaage to send the message to the support channel. Example /help my dinos are stuck.
 
 * `PrefixToSendToDiscord`: is the prefix that will be used if `SendChatToDiscord` is `false`. Example /discord hello.
@@ -386,6 +391,7 @@ Example of what the default looks like.
     "PingRoleName": false,
     "ReplyToSupportPing": true,
     "SendChatToDiscord": true,
+    "UsePlayerCountChannelUpdater": false,
     "SupportPrefix": "/help",
     "PrefixToSendToDiscord": "/discord",
     "SupportRoleToPing": "rolename",
@@ -545,6 +551,7 @@ Example default config
     "ListPlayersCmd": "ListPlayers",
     "ListPlayerCheckTimeInMs": 10000,
     "GetChatTimeInMs": 5,
+    "PlayerCountCheckTimeInMs": 30000,
     "RconSendTimeoutInMs": 3000,
     "RconReceiveTimeoutInMs": 10000,
     "RconConnectionRetrys": 1
@@ -591,6 +598,7 @@ Example default config
     "PingRoleName": false,
     "ReplyToSupportPing": true,
     "SendChatToDiscord": true,
+    "UsePlayerCountChannelUpdater": false,
     "SupportPrefix": "/help",
     "PrefixToSendToDiscord": "/discord",
     "SupportRoleToPing": "rolename",
@@ -804,7 +812,7 @@ Thats it your bot is now added to your discord server and once your done setting
 * A: No i like "moneys" however this project was for fun and for the community to enjoy so if you paid for this then you have been scammed. If you want to help me you can feed me new ideas, help with making better guides, or fixing typos. Im to lazy to set up a paypal for donations but i may in the future since a free dr pepper would be nice.
 
 * Q: Do you plan to add more features or is this it?
-* A: I plan to keep updating the program for a good while mostly for the experience and to see what all we can do with it. Check my to-do list for my planned updates. Due to working full time i dont give etas since work might get busy depending on the season but i plan to at the bare min make sure the bot at least runs. If this ever changes i will let everyone know and look for someone to take it over.
+* A: I plan to keep updating the program for a good while mostly for the experience and to see what all we can do with it. Check my to-do list for my planned updates. Due to working full time i dont give etas since work might get busy depending on the season but i plan to at the bare min make sure the bot at least runs. If this ever changes i will let everyone know.
 
 Thats all i can think of for now :)
 
