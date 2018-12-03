@@ -1,1 +1,10 @@
+Fixed null errors. Bot will no longer show null errors i ment to fix the null check a while back but forgot.
 
+Added new online player tracker. This will keep a count of how many people are on the servers and update the discord channel description with the count. Format looks like 0/100.
+The new player tracker does two things.
+
+1: If UsePlayerCountChannelUpdater is set to true the bot will update the DiscordChannelID channel description with the total player count of all servers. Example if you have 50 people across 5 servers each server having a max count of 100 the bot will show 50/500 at the top of the channel.
+
+2: If you use the SendServerChatToOwnChannel option the bot will update not only the above channel but will give the online count of each server for its own channel. Example instead of showing 50/500 it would show 10/100 if you had a max player count of 100 with 10 online.
+
+BIG NOTICE this uses steams system so it shows what steam can see so if its not showing correct nothing i can do about it. Example if 10 are really online but steam is only saying 6 are on cant help ya.
