@@ -37,7 +37,7 @@ Read the [CONTRIBUTING.md](https://github.com/spikeydragoon/Cross-Ark-Chat/blob/
 
 Join us on [Discord](https://discord.gg/HAk4BmN) for support and for latest updates.
 
-If your looking to play on a server with this here is link to my [servers](arkservermanager.freeforums.net/thread/4716/dinoroars-cross-ark-servers-cluster)
+If your looking to play on a server with this here is link to my [servers](http://arkservermanager.freeforums.net/thread/4716/dinoroars-cross-ark-servers-cluster)
 
 ## Getting Started
 
