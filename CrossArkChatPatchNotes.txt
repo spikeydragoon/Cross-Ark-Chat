@@ -1,10 +1,19 @@
-Fixed null errors. Bot will no longer show null errors i ment to fix the null check a while back but forgot.
+Due to major changes skipping to version 4.0. Make sure to use the new config completely as wording has changed.
 
-Added new online player tracker. This will keep a count of how many people are on the servers and update the discord channel description with the count. Format looks like 0/100.
-The new player tracker does two things.
+Fixed players name only showing first word when having a multi word name.
 
-1: If UsePlayerCountChannelUpdater is set to true the bot will update the DiscordChannelID channel description with the total player count of all servers. Example if you have 50 people across 5 servers each server having a max count of 100 the bot will show 50/500 at the top of the channel.
+Fixed tribe logs and messages getting squashed into the same message. I changed the code that runs the getchat command due to changes in ark i can now parse per line to split messages up.
 
-2: If you use the SendServerChatToOwnChannel option the bot will update not only the above channel but will give the online count of each server for its own channel. Example instead of showing 50/500 it would show 10/100 if you had a max player count of 100 with 10 online.
+Changed the player count system over to rcon from steam. This was due to steam being to inaccurate.
 
-BIG NOTICE this uses steams system so it shows what steam can see so if its not showing correct nothing i can do about it. Example if 10 are really online but steam is only saying 6 are on cant help ya.
+Changed the player notification system to use the word filter so you can keep markdowns from happening when not wanted when a player has a special character in their names.
+
+Added option to change the format of tribe logs. Tribe logs can now be changed to a short readable message in both plain text or a nice message bubble. You can still chose to the the full tribe log however it will not be formatted by the bot you will have to use the word filter to format it yourself.
+
+Added option to change the discord logging severity. This allows you to have the bot just show normal information or extremely detailed for troubleshooting. Default level is now info. I recommend verbose for troubleshooting. Full list of different options. (Critical, Debug, Error, Info, Verbose, and Warning) Note with more details it will fill your log file up.
+
+Added option to send a notification to discord when cross ark chat has a new update available.
+
+Added option to send the patch notes to discord when a cross ark chat has a new update available.
+
+Added option to add words before and after the player count so you can make it show a custom messages instead of just the 0/100 format.
