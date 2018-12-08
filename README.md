@@ -106,16 +106,35 @@ Basic formating for the config should look like this.
 For Application Settings.
 * `VersionCheckUrl`: This should be left as is. The bot uses this to check if its running the latest version or not.
 
+* `CrossArkChatPatchNotesCheckUrl`: This should be left as is. The bot uses this to check the patch notes for cross ark chat.
+
 * `LogErrors`: `True` for the bot to log errors to the error file `False` to ignore errors. This is good for debugging to see what is going on if its not working.
 
 * `UseDiscord`: `True` to use discord `false` to use only rcon. This is for servers who only want cross chat and not discord. 
+
+* `DiscordLoggingSeverity`: `info` bot uses this to see what type of logging you want for the discord output. For normal use i would leave it set to info but for troubleshooting i would use verbose.
+
+Note there are a few opitions you can set the discordloggingseverity to.
+Critical = Logs that contain the most severe level of error. This type of error indicate that immediate attention may be required.
+
+Debug = Logs that contain the most detailed messages.
+
+Error = Logs that highlight when the flow of execution is stopped due to a failure.
+
+Info = Logs that track the general flow of the application.
+
+Verbose = Logs that are used for interactive investigation during development.
+
+Warning = Logs that highlight an abnormal activity in the flow of execution.
 
 Example of what the default looks like.
 ```json
 "ApplicationSettings": {
     "VersionCheckUrl": "https://raw.githubusercontent.com/spikeydragoon/Cross-Ark-Chat/master/version.txt",
+    "CrossArkChatPatchNotesCheckUrl": "https://raw.githubusercontent.com/spikeydragoon/Cross-Ark-Chat/master/CrossArkChatPatchNotes.txt",
     "LogErrors": true,
-    "UseDiscord": true
+    "UseDiscord": true,
+    "DiscordLoggingSeverity": "info"
   },
 ```
 
@@ -229,6 +248,8 @@ If you notice lag when the bot runs you can force the bot to get chat slower by 
 
 * `PlayerCountCheckTimeInMs` This is the frequency in milliseconds that the player counter will run.
 
+* `CrossArkChatVersionCheckTimeInMs`: This is the frequency it checks for a new version of crossarkchat.
+
 * `RconSendTimeoutInMs`: This is the frequency in milliseconds the send commad will wait before timing out.
 
 * `RconReceiveTimeoutInMs`: This is the frequency in milliseconds the receive command will wait before timing out.
@@ -248,18 +269,23 @@ Example of what the default looks like.
     "ListPlayerCheckTimeInMs": 10000,
     "GetChatTimeInMs": 5,
     "PlayerCountCheckTimeInMs": 30000,
+    "CrossArkChatVersionCheckTimeInMs": 3600000,
     "RconSendTimeoutInMs": 3000,
     "RconReceiveTimeoutInMs": 10000,
     "RconConnectionRetrys": 1
   },
 ```
 
-For Player Notification setings.
+For Cross Ark Chat Notification setings.
 
 You can change what the bot says when a player joins and leaves the ark servers. 
 Format looks like this and you can change everything but the location of the {PlayerName} and {MapName}.
 Player {PlayerName} joined the {MapName} server
 Player {PlayerName} left the {MapName} server
+
+You can change what the bot shows for your online player counter.
+Format for player counter looks like this. You can change everything but the {CurrentOnline}.
+Leftblank {CurrentOnline}/100 Leftblank
 
 * `PlayerJoinStart`: First part of the join notification.
 
@@ -273,16 +299,121 @@ Player {PlayerName} left the {MapName} server
 
 * `PlayerLeftEnd`: Last part of the left notification.
 
+* `PlayerCountStart`: First part of the player count notification.
+
+* `PlayerCountMiddle`: Middle part of the player count notification.
+
+* `MaxPlayerCount`: This is the max number your servers can hold so change to what your max number is. Default is 100.
+
+* `PlayerCountEnd`: Last part of the player count notification.
+
+* `CrossArkChatVersionStart`: First part of the cross ark chat version notification.
+
+* `CrossArkChatVersionEnd`: Last part of the cross ark chat version notification.
+
+* `CrossArkChatPatchStart`: First part of the cross ark chat patch notes notification.
+
+* `CrossArkChatPatchEnd`: Last part of the cross ark chat patch notes notification.
+
+* `ShowFullTribeLog`: This tells the bot to show the full unformated version of tribe logs. True will show the full tribe log. False will format the tribe log into a more readable version.
+
+* `ShowTribeLogTribeNameInOwnChannel`: This tells the bot to show tribe name for the tribe log in the personal tribe channel.
+
+* `ShowTribeLogTribeNameInMainChannel`: This tells the bot to show tribe name for the tribe logs in the main TribeDiscordChannelID channel.
+
+* `ShowTribeLogServerNameInOwnChannel`: This tells the bot to show the server name the log came from in the tribes personal channel.
+
+* `ShowTribeLogServerNameInMainChannel`: This tells the bot to show the server name the log came from in the TribeDiscordChannelId channel.
+
+* `EmbedFormattedTribeLog`: This tells the bot to embed the tribe log in a nice message bubble or to display it as normal text. True to just show the nice color embedded messages false to show just the text version of the tribe log.
+
 Example of what the default looks like.
 ```json
-"PlayerNotificationsSettings": {
+"CrossArkChatNotificationSettings": {
     "PlayerJoinStart": "Player",
     "PlayerJoinMiddle": "joined the",
     "PlayerJoinEnd": "server",
     "PlayerLeftStart": "Player",
     "PlayerLeftMiddle": "left the",
-    "PlayerLeftEnd": "server"
+    "PlayerLeftEnd": "server",
+    "PlayerCountStart": "",
+    "PlayerCountMiddle": "/",
+    "MaxPlayerCount": "100",
+    "PlayerCountEnd": "",
+    "CrossArkChatVersionStart": "New CrossArkChat version",
+    "CrossArkChatVersionEnd": "is now avaiable",
+    "CrossArkChatPatchStart": "Patch notes for new cross ark chat version",
+    "CrossArkChatPatchEnd": "",
+    "ShowFullTribeLog": false,
+    "ShowTribeLogTribeNameInOwnChannel": false,
+    "ShowTribeLogTribeNameInMainChannel": true,
+    "ShowTribeLogServerNameInOwnChannel": true,
+    "ShowTribeLogServerNameInMainChannel": true,
+    "EmbedFormattedTribeLog": true
   },
+```
+
+For Embedded Tribe log color settings. Note i may have missed some but I have it set up you can add your own.
+* `LogType`: this is the word the bot will look for to apply colors and ping a discord role.
+
+* `LogColor`: this is the hex value of the color you want the bot to use for the log type. Note do not put the # from the hex color just the numbers/letters. Example for red its #ff2121 in the config just put ff2121. You can use any online color picker that gives the hex value for that color.
+
+* `RoleToPing`: this is the discord rolename the bot will ping for the set logtype. Note if you dont want it to ping a role just leave it set to none.
+
+Example of what the default looks like.
+```json
+"EmbeddedTribeLogColorSettings": [
+    {
+      "LogType": "killed",
+      "LogColor": "ff2121",
+      "RoleToPing": "none"
+    },
+    {
+      "LogType": "demolished",
+      "LogColor": "ff2121",
+      "RoleToPing": "none"
+    },
+    {
+      "LogType": "claimed",
+      "LogColor": "03f413",
+      "RoleToPing": "none"
+    },
+    {
+      "LogType": "unclaimed",
+      "LogColor": "ff2121",
+      "RoleToPing": "none"
+    },
+    {
+      "LogType": "tamed",
+      "LogColor": "03f413",
+      "RoleToPing": "none"
+    },
+    {
+      "LogType": "destroyed",
+      "LogColor": "ff7400",
+      "RoleToPing": "none"
+    },
+    {
+      "LogType": "froze",
+      "LogColor": "d8ddd8",
+      "RoleToPing": "none"
+    },
+    {
+      "LogType": "downloaded",
+      "LogColor": "03f413",
+      "RoleToPing": "none"
+    },
+    {
+      "LogType": "uploaded",
+      "LogColor": "ff2121",
+      "RoleToPing": "none"
+    },
+    {
+      "LogType": "starved",
+      "LogColor": "ff2121",
+      "RoleToPing": "none"
+    }
+  ],
 ```
 
 For Chat settings.
@@ -334,6 +465,10 @@ For Discord Settings.
 
 * `JoinLeaveNotificationsDiscordChannelID`: is the id of the channel you want the bot to send join/leave notifications if enabled.
 
+* `CrossArkChatVersionDiscordChannelId`: is the id of the channel you want the bot to send the new version notification if enabled.
+
+* `CrossArkChatPatchNotesDiscordChannelId`: is the id of the channel you want the bot to send the patch notes notification if enabled.
+
 * `prefix`: is the tag you use in discord when sending commands.
 
 * `DiscordChatPrefix`: is the chat prefix used in-game when sending messages from discord.
@@ -361,6 +496,10 @@ For Discord Settings.
 * `SendChatToDiscord`: tells the bot to send messages to discord or not. If `true` messages will send as normal. if `false` you will have to use the `PrefixToSendToDiscord` to send messages to discord.
 
 * `UsePlayerCountChannelUpdater`: tells the bot to update channel discription with the online play count or not. `true` to use the count updater.
+
+* `UseCrossArkChatVersionChecker`: tells the bot to send a new version notification when one is avaiable.
+
+* `UseCrossArkChatPathNotesChecker`: tells the bot to send a patch note notification when one is avaiable.
 
 * `SupportPrefix`: is the prefix that will be used if UseSupportPrefix is true. This prefix must be typed before the messaage to send the message to the support channel. Example /help my dinos are stuck.
 
@@ -478,8 +617,10 @@ Example default config
 {
   "ApplicationSettings": {
     "VersionCheckUrl": "https://raw.githubusercontent.com/spikeydragoon/Cross-Ark-Chat/master/version.txt",
+    "CrossArkChatPatchNotesCheckUrl": "https://raw.githubusercontent.com/spikeydragoon/Cross-Ark-Chat/master/CrossArkChatPatchNotes.txt",
     "LogErrors": true,
-    "UseDiscord": true
+    "UseDiscord": true,
+    "DiscordLoggingSeverity": "info"
   },
 
   "Servers": [
@@ -552,19 +693,87 @@ Example default config
     "ListPlayerCheckTimeInMs": 10000,
     "GetChatTimeInMs": 5,
     "PlayerCountCheckTimeInMs": 30000,
+    "CrossArkChatVersionCheckTimeInMs": 3600000,
     "RconSendTimeoutInMs": 3000,
     "RconReceiveTimeoutInMs": 10000,
     "RconConnectionRetrys": 1
   },
 
-  "PlayerNotificationsSettings": {
+  "CrossArkChatNotificationSettings": {
     "PlayerJoinStart": "Player",
     "PlayerJoinMiddle": "joined the",
     "PlayerJoinEnd": "server",
     "PlayerLeftStart": "Player",
     "PlayerLeftMiddle": "left the",
-    "PlayerLeftEnd": "server"
+    "PlayerLeftEnd": "server",
+    "PlayerCountStart": "",
+    "PlayerCountMiddle": "/",
+    "MaxPlayerCount": "100",
+    "PlayerCountEnd": "",
+    "CrossArkChatVersionStart": "New CrossArkChat version",
+    "CrossArkChatVersionEnd": "is now avaiable",
+    "CrossArkChatPatchStart": "Patch notes for new cross ark chat version",
+    "CrossArkChatPatchEnd": "",
+    "ShowFullTribeLog": false,
+    "ShowTribeLogTribeNameInOwnChannel": false,
+    "ShowTribeLogTribeNameInMainChannel": true,
+    "ShowTribeLogServerNameInOwnChannel": true,
+    "ShowTribeLogServerNameInMainChannel": true,
+    "EmbedFormattedTribeLog": true
   },
+
+  "EmbeddedTribeLogColorSettings": [
+    {
+      "LogType": "killed",
+      "LogColor": "ff2121",
+      "RoleToPing": "none"
+    },
+    {
+      "LogType": "demolished",
+      "LogColor": "ff2121",
+      "RoleToPing": "none"
+    },
+    {
+      "LogType": "claimed",
+      "LogColor": "03f413",
+      "RoleToPing": "none"
+    },
+    {
+      "LogType": "unclaimed",
+      "LogColor": "ff2121",
+      "RoleToPing": "none"
+    },
+    {
+      "LogType": "tamed",
+      "LogColor": "03f413",
+      "RoleToPing": "none"
+    },
+    {
+      "LogType": "destroyed",
+      "LogColor": "ff7400",
+      "RoleToPing": "none"
+    },
+    {
+      "LogType": "froze",
+      "LogColor": "d8ddd8",
+      "RoleToPing": "none"
+    },
+    {
+      "LogType": "downloaded",
+      "LogColor": "03f413",
+      "RoleToPing": "none"
+    },
+    {
+      "LogType": "uploaded",
+      "LogColor": "ff2121",
+      "RoleToPing": "none"
+    },
+    {
+      "LogType": "starved",
+      "LogColor": "ff2121",
+      "RoleToPing": "none"
+    }
+  ],
 
   "ChatSettings": {
     "ShowAdminCommands": false,
@@ -585,6 +794,8 @@ Example default config
     "AdminCommandsDiscordChannelID": 0,
     "SupportChannelID": 0,
     "JoinLeaveNotificationsDiscordChannelID": 0,
+    "CrossArkChatVersionDiscordChannelId": 0,
+    "CrossArkChatPatchNotesDiscordChannelId": 0,
     "prefix": "d!",
     "DiscordChatPrefix": "Discord",
     "DiscordToken": "BotToken",
@@ -599,6 +810,8 @@ Example default config
     "ReplyToSupportPing": true,
     "SendChatToDiscord": true,
     "UsePlayerCountChannelUpdater": false,
+    "UseCrossArkChatVersionChecker": false,
+    "UseCrossArkChatPathNotesChecker": false,
     "SupportPrefix": "/help",
     "PrefixToSendToDiscord": "/discord",
     "SupportRoleToPing": "rolename",
@@ -628,11 +841,11 @@ Example _WordFilter.json
   "WordReplacementList": [
     {
       "OldWord": "ö",
-      "Newword": "o"
+      "NewWord": "o"
     },
     {
       "OldWord": "raptor",
-      "Newword": "dragon"
+      "NewWord": "dragon"
     }
   ]
 }
