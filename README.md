@@ -62,6 +62,8 @@ sudo yum update
 sudo yum install libunwind libicu
 ```
 
+If you get any System.Net.Http.CurlHandler errors you might need to install libcurl3
+
 For Linux set the CrossArkChat folder/files permissions to 755 to allow w/r/execute
 
 You must have rcon enabled in the Ark Server Settings.
