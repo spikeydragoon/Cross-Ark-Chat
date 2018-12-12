@@ -75,22 +75,65 @@ For tribe logs you must have log tribe logs to rcon enabled in the Ark Server Se
 
 2:Extract the CrossArkChat.zip to where ever you want the program to run from.
 
-3:Open the folder you extracted and configure the programs settings in `_configuration.json`.
+3: If you are linking the bot to your discord server go throught the discord setup first before continuing otherwise skip to step 4.
 
-3a:Optionally if you want to setup a badword list or word replacement then configure settings in `_wordfilter.json`.
+4:Open the folder you extracted and configure the programs settings in `_configuration.json`.
+
+4a:Optionally if you want to setup a badword list or word replacement then configure settings in `_wordfilter.json`.
 If you dont plan to use badword filters then can just ignore this file. Do not delete this file as program wont run if its missing.
 
-3b: Optionally if you want to use rcon commands from discord you must set up the role names in `_discordroles.json`.
+4b: Optionally if you want to use rcon commands from discord you must set up the role names in `_discordroles.json`.
 Role names must be exzactly how they are listed in your discord server settings / role tab. This is case sensitive.
 
-3c: Optionally if you want to use timed rcon commands you must set up the commands in `_timedcommands.json`.
+4c: Optionally if you want to use timed rcon commands you must set up the commands in `_timedcommands.json`.
 
-4:Launch the program.exe and enjoy. 
+5:Launch the program.exe and enjoy. 
 
-4a:For linux/redhat use `./CrossArkChat` to start the bot. You must start the bot from the folder the bot is in.
+5a:For linux/redhat use `./CrossArkChat` to start the bot. You must start the bot from the folder the bot is in.
 If you want the bot to run in background so you dont have to stay logged in you can run `nohup ./CrossArkChat &` Note the & is very important and it will not work if thats not there.
 To find the pid run `ps -ef | grep CrossArkChat`.
 Once you have the pid run `kill 1234 1234` to end program nicely or `kill -9 1234 1234` to force close it. Replace the 1234 1234 with the pid you find from the above command.
+
+
+## Discord set up
+
+Steps on how to get your discord bot token by setting up a bot user, adding the bot to your discord server, and getting your discord channel ids.
+
+
+### Creating your discord bot user
+
+You have to create a discord bot user to get the token and to be able to add the bot to your discord server.
+
+* You need to go to the Discord Developers section [here](https://discordapp.com/developers/applications) and click `Create an Application`
+* Now name your bot then hit `Save Changes`. If you want you can provide a picture and you can give your bot a discription that will show up in the bots profile however this is not needed. The name given and picture is what will show up in your discord channel when the bot is online.
+* On the left Click `Bot` then click `Add bot`. Confirm by clicking `Yes, do it~`
+* Now you can get your bot's token by using the `click to reveal token` button. Note this is special and shouldnt be shared with anyone. Anyone that has this token can use it to mess with your discord server and bot. If you already gave your token to someone then go back to where it says click to reveal and click `Regenerate`.
+* Paste the bot token in the `_configuration.json` file where it says `DiscordToken`
+
+
+### Adding the CrossArk program to discord
+
+You now have to add the bot to your discord server and give it permissions.
+
+* You need to go to the Discord Developers section [here](https://discordapp.com/developers/applications) and click on the bot you created in the steps above.
+* Under General Information copy the Client ID.
+* In your browser type in `https://discordapp.com/oauth2/authorize?&client_id=YOUR_CLIENT_ID_HERE&scope=bot&permissions=0` Replace where it says You_Client_Id_Here with the Bot Client ID that you copyed above. Example `https://discordapp.com/oauth2/authorize?&client_id=123456789&scope=bot&permissions=0`
+* Once this page loads up select the server you want to add the bot to. Note you must have the Manage Server permission on the server you are tring to invite the bot to.
+* Click `Authorize`
+
+
+### Getting discord channel ids
+
+You have to enable developer mode in discord user settings to be able to get channel ids.
+
+* 1: With discord open press the user settings icon (Gear icon at bottom left of discord)
+* 2: Under App Settings section select the Appearance tab.
+* 3: Scroll down to the Advance section and next to developer mode press the button to turn it on.
+* 4: Press the X to return to your discord server.
+* 5: Right click a discord channel and select copy id.
+This will put the channel id in your clipboard so you can paste it into the config file. Note you can only paste one channel id at a time.
+
+Thats it you can now proceed with step 4 and set up your _configuration file.
 
 
 ## Configuration
@@ -983,34 +1026,6 @@ Below are three exzamples of how you can configure your timers.
   ]
 }
 ```
-
-## Discord set up
-
-Steps on how to get your discord tokens and channel ids.
-
-
-### Creating your discord bot user
-
-You have to create a discord bot user to get the token and to be able to add the bot to your discord server.
-
-* You need to go to the Discord Developers section [here](https://discordapp.com/developers/applications) and click `Create an Application`
-* Now name your bot then hit `Save Changes`. If you want you can provide a picture and you can give your bot a discription that will show up in the bots profile however this is not needed. The name given and picture is what will show up in your discord channel when the bot is online.
-* On the left Click `Bot` then click `Add bot`. Confirm by clicking `Yes, do it~`
-* Now you can get your bot's token by using the `click to reveal token` button. Note this is special and shouldnt be shared with anyone. Anyone that has this token can use it to mess with your discord server and bot. If you already gave your token to someone then go back to where it says click to reveal and click `Regenerate`.
-* Paste the bot token in the `_configuration.json` file where it says `DiscordToken`
-
-
-### Adding the CrossArk program to discord
-
-You now have to add the bot to your discord server and give it permissions.
-
-* You need to go to the Discord Developers section [here](https://discordapp.com/developers/applications) and click on the bot you created in the steps above.
-* Under General Information copy the Client ID.
-* In your browser type in `https://discordapp.com/oauth2/authorize?&client_id=YOUR_CLIENT_ID_HERE&scope=bot&permissions=0` Replace where it says You_Client_Id_Here with the Bot Client ID that you copyed above. Example `https://discordapp.com/oauth2/authorize?&client_id=123456789&scope=bot&permissions=0`
-* Once this page loads up select the server you want to add the bot to. Note you must have the Manage Server permission on the server you are tring to invite the bot to.
-* Click `Authorize`
-
-Thats it your bot is now added to your discord server and once your done setting up the config turn the program on and enjoy.
 
 
 ## FAQ
