@@ -1,19 +1,10 @@
-Due to major changes skipping to version 4.0. Make sure to use the new config completely as wording has changed.
+Make sure to use the new config as it adds two new settings for tribe ids.
 
-Fixed players name only showing first word when having a multi word name.
+For windows version.
+https://github.com/spikeydragoon/Cross-Ark-Chat/files/2682651/CrossArkChat.zip
 
-Fixed tribe logs and messages getting squashed into the same message. I changed the code that runs the getchat command due to changes in ark i can now parse per line to split messages up.
+For linux version. (Notes this is dropbox due to size of the linux file and github size limit.)
+https://www.dropbox.com/s/w5lf2sd6kncpy9q/CrossArkChat.zip?dl=0
 
-Changed the player count system over to rcon from steam. This was due to steam being to inaccurate.
-
-Changed the player notification system to use the word filter so you can keep markdowns from happening when not wanted when a player has a special character in their names.
-
-Added option to change the format of tribe logs. Tribe logs can now be changed to a short readable message in both plain text or a nice message bubble. You can still chose to the the full tribe log however it will not be formatted by the bot you will have to use the word filter to format it yourself.
-
-Added option to change the discord logging severity. This allows you to have the bot just show normal information or extremely detailed for troubleshooting. Default level is now info. I recommend verbose for troubleshooting. Full list of different options. (Critical, Debug, Error, Info, Verbose, and Warning) Note with more details it will fill your log file up.
-
-Added option to send a notification to discord when cross ark chat has a new update available.
-
-Added option to send the patch notes to discord when a cross ark chat has a new update available.
-
-Added option to add words before and after the player count so you can make it show a custom messages instead of just the 0/100 format.
+Added option to show or hide tribe id in both the main and tribe log channels.
+Cleaned up the tribe log code to match newer format
