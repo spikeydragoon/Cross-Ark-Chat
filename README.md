@@ -370,6 +370,10 @@ Leftblank {CurrentOnline}/100 Leftblank
 
 * `ShowTribeLogServerNameInMainChannel`: This tells the bot to show the server name the log came from in the TribeDiscordChannelId channel.
 
+* `ShowTribeLogTribeIdInOwnChannel`: This tells the bot to show the Tribe id the log came from in the Tribes personal channel.
+
+* `ShowTribeLogTribeIdInMainChannel`: This tells the bot to show the Tribe id the log came from in the TribeDiscordChannelId channel.
+
 * `EmbedFormattedTribeLog`: This tells the bot to embed the tribe log in a nice message bubble or to display it as normal text. True to just show the nice color embedded messages false to show just the text version of the tribe log.
 
 Example of what the default looks like.
@@ -394,6 +398,8 @@ Example of what the default looks like.
     "ShowTribeLogTribeNameInMainChannel": true,
     "ShowTribeLogServerNameInOwnChannel": true,
     "ShowTribeLogServerNameInMainChannel": true,
+    "ShowTribeLogTribeIdInOwnChannel": false,
+    "ShowTribeLogTribeIdInMainChannel": true,
     "EmbedFormattedTribeLog": true
   },
 ```
