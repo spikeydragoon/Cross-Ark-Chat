@@ -1,7 +1,8 @@
 # Cross-Ark-Chat
-To see how to set up the bot and settings check out the new wiki page. https://github.com/spikeydragoon/Cross-Ark-Chat/wiki
+To see how to set up the bot and settings check out the new [wiki](https://github.com/spikeydragoon/Cross-Ark-Chat/wiki) page.
 
-Check out the FAQ page. https://github.com/spikeydragoon/Cross-Ark-Chat/wiki/FAQ
+Check out the [FAQ](https://github.com/spikeydragoon/Cross-Ark-Chat/wiki/FAQ
+) page.
 
 ## To-Do List
 
