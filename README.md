@@ -4,6 +4,10 @@ To see how to set up the bot and settings check out the new [wiki](https://githu
 Check out the [FAQ](https://github.com/spikeydragoon/Cross-Ark-Chat/wiki/FAQ
 ) page before asking questions or submitting issues.
 
+If you want to support me you can now do that with the link below.
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QUTMCZQZ2STUU&source=url)
+
 ## To-Do List
 
 * For a updated list check [here](https://github.com/spikeydragoon/Cross-Ark-Chat/projects/1)
