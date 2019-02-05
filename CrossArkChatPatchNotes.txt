@@ -1,10 +1,29 @@
-Make sure to use the new config as it adds two new settings for tribe ids.
+Download for windows
+https://github.com/spikeydragoon/Cross-Ark-Chat/files/2833788/CrossArkChat.zip
 
-For windows version.
-https://github.com/spikeydragoon/Cross-Ark-Chat/files/2682651/CrossArkChat.zip
+Download for linux
+https://github.com/spikeydragoon/Cross-Ark-Chat/files/2833791/CrossArkChatLinux.zip
 
-For linux version. (Notes this is dropbox due to size of the linux file and github size limit.)
-https://www.dropbox.com/s/w5lf2sd6kncpy9q/CrossArkChat.zip?dl=0
+Due to major changes i will be skipping to 5.0. Make sure to use all new config files as things have changed a lot.
 
-Added option to show or hide tribe id in both the main and tribe log channels.
-Cleaned up the tribe log code to match newer format
+For full patch note list visit the github page as discord has a message limit.
+
+Updated _configuration.json to be cleaner and more grouped for settings.
+Servers can now share settings with other servers.
+Tribes can now share settings with other tribes.
+Moved all log options to the application settings section.
+Changed Map to NameTag in server settings.
+Prefixs are now set to their own group. This will allow you to send messages to a list of servers instead of just one servers at a time. You can still put only one server in the list per prefix.
+Updated _timecommands.json to me more customizable.
+Commands can now be send to a list of servers instead of one at a time. Note you can still put just 1 server in the list or just type all to send to all servers.
+Added new auto reconnect feature.
+You can now start the bot with the server offline. If a server losses connection the bot will now auto reconnect.
+Added option to disable sending to chat and discord separate from the prefixs.
+This will allow you to turn cross chat off while still getting messages in discord or using the other features of the bot.
+This will allow you to turn cross chat for discord off while still getting logs and rcon commands sent to discord.
+Added new _translation.json file.
+Added option to easily edit messages for discord markdowns per server.
+Added option to hide server name from both in-game and discord. This is settable per server.
+Fixed player names with spaces not showing up properly.
+Fixed player counter this should now properly show 0 when all players are off.
+Fixed prefixs and game commands they should now work with atlas.
