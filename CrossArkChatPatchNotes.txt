@@ -1,13 +1,9 @@
-Only patchs in this release so you can reuse the config folder from v5.0
+No config changes in this release so can copy your old config folder from 5.1 over.
 
 For windows
-<https://github.com/spikeydragoon/Cross-Ark-Chat/files/2839243/CrossArkChat.zip>
+https://github.com/spikeydragoon/Cross-Ark-Chat/files/2841509/CrossArkChat.zip
 
 For Linux
-<https://github.com/spikeydragoon/Cross-Ark-Chat/files/2839244/CrossArkChatLinux.zip>
+https://github.com/spikeydragoon/Cross-Ark-Chat/files/2841511/CrossArkChatLinux.zip
 
-Fixed issue where only server to server messages wouldnt work when hidenametag was set to true.
-Fixed Discord markdowns not working correctly.
-Fixed server name tag being deleted for admin commands.
-Fixed issue where messages from discord was only going to the first server in the list when using shared channel ids.
-Fixed stop command only working first time its ran.
+* Fixed game commands not working when a player had spaces in their names.
