@@ -17,7 +17,7 @@ If you want to support me you can now do that with the link below.
 
 * [QueryMaster](https://archive.codeplex.com/?p=querymaster) - Lib used to handle all steam and rcon connections.
 * [Discord.net](https://github.com/RogueException/Discord.Net/tree/dev) - Lib used to handle all discord connections.
-* [C# .Net](https://github.com/dotnet) - Codeing langue and project used to run the program.
+* [C# .Net](https://github.com/dotnet) - Coding language used.
 
 
 ## Contributing
