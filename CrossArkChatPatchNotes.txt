@@ -1,9 +1,13 @@
-No config changes in this release so can copy your old config folder from 5.1 over.
+No config changes in this release so can copy your old config folder from 5.2 over.
 
 For windows
-https://github.com/spikeydragoon/Cross-Ark-Chat/files/2841509/CrossArkChat.zip
+https://github.com/spikeydragoon/Cross-Ark-Chat/files/2899021/CrossArkChat.zip
 
 For Linux
-https://github.com/spikeydragoon/Cross-Ark-Chat/files/2841511/CrossArkChatLinux.zip
+https://github.com/spikeydragoon/Cross-Ark-Chat/files/2899023/CrossArkChatLinux.zip
 
-* Fixed game commands not working when a player had spaces in their names.
+Fixed player counter not tracking properly. It should now correctly show count per server and total count for all channel and reset back to 0 when no one is online.
+
+Fixed colors not correctly applying in discord tribe log embeds.
+
+Added console logging for servers when being added and removed from the auto reconnect que.
