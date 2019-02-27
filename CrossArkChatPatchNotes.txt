@@ -1,13 +1,9 @@
-No config changes in this release so can copy your old config folder from 5.2 over.
+No config changes in this release so can copy your old config folder from 5.3 over.
 
-For windows
-https://github.com/spikeydragoon/Cross-Ark-Chat/files/2899021/CrossArkChat.zip
+Windows
+https://github.com/spikeydragoon/Cross-Ark-Chat/files/2908235/CrossArkChat.zip
 
-For Linux
-https://github.com/spikeydragoon/Cross-Ark-Chat/files/2899023/CrossArkChatLinux.zip
+Linux
+https://github.com/spikeydragoon/Cross-Ark-Chat/files/2908236/CrossArkChatLinux.zip
 
-Fixed player counter not tracking properly. It should now correctly show count per server and total count for all channel and reset back to 0 when no one is online.
-
-Fixed colors not correctly applying in discord tribe log embeds.
-
-Added console logging for servers when being added and removed from the auto reconnect que.
+Fixed issue with discord role names matching when they shouldn't. Bot now matches the role name letter for letter and is no longer case sensitive. So admin will match Admin however it no longer matches Admin to ArkAdmin.
