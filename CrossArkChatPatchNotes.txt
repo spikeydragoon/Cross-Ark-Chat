@@ -1,9 +1,9 @@
-No config changes in this release so can copy your old config folder from 5.3 over.
+No config changes in this release so can copy your old config folder from 5.4 over.
 
 Windows
-https://github.com/spikeydragoon/Cross-Ark-Chat/files/2908235/CrossArkChat.zip
-
+<https://github.com/spikeydragoon/Cross-Ark-Chat/files/2939550/CrossArkChat.zip>
 Linux
-https://github.com/spikeydragoon/Cross-Ark-Chat/files/2908236/CrossArkChatLinux.zip
+<https://github.com/spikeydragoon/Cross-Ark-Chat/files/2939553/CrossArkChatLinux.zip>
 
-Fixed issue with discord role names matching when they shouldn't. Bot now matches the role name letter for letter and is no longer case sensitive. So admin will match Admin however it no longer matches Admin to ArkAdmin.
+* Fixed timed commands running more than one when having multi commands active.
+* Fixed commands not listing servers when over 25 active at one time. Servers are now paged by 10 servers at a time. You still use it the same way just have pages to view now.
