@@ -4,6 +4,7 @@ To see how to set up the bot and settings check out the new [wiki](https://githu
 Check out the [FAQ](https://github.com/spikeydragoon/Cross-Ark-Chat/wiki/FAQ
 ) page before asking questions or submitting issues.
 
+## Bot's Official Host [![ServerBlend](https://github.com/spikeydragoon/Cross-Ark-Chat/blob/master/darkgrey_retina_no_slogan200.png)](https://serverblend.com/my/aff.php?aff=175)
 Be sure to check out the bot's official host [ServerBlend.com](https://serverblend.com/my/aff.php?aff=175).  
 Affiliate Disclosure: By using this link CrossArkChat will receive a small commission at no additional cost to you, if you sign up for the service.
 
