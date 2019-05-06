@@ -4,7 +4,10 @@ To see how to set up the bot and settings check out the new [wiki](https://githu
 Check out the [FAQ](https://github.com/spikeydragoon/Cross-Ark-Chat/wiki/FAQ
 ) page before asking questions or submitting issues.
 
-If you want to support me you can now do that with the link below.
+Be sure to check out the bot's offical host [ServerBlend.com](https://serverblend.com/my/aff.php?aff=175).  
+Affiliate Disclosure: By using this link CrossArkChat will receive a small commission at no additional cost to you, if you sign up for the service.
+
+If you want to support me you can now do so with the link below.
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QUTMCZQZ2STUU&source=url)
 
