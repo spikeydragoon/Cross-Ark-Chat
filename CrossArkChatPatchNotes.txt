@@ -1,9 +1,10 @@
-No config changes in this release so can copy your old config folder from 5.4 over.
+New config for _discordroles.json file so make sure to grab the new one.
 
 Windows
-<https://github.com/spikeydragoon/Cross-Ark-Chat/files/2939550/CrossArkChat.zip>
-Linux
-<https://github.com/spikeydragoon/Cross-Ark-Chat/files/2939553/CrossArkChatLinux.zip>
+<https://github.com/spikeydragoon/Cross-Ark-Chat/files/3154654/CrossArkChat.zip>
 
-* Fixed timed commands running more than one when having multi commands active.
-* Fixed commands not listing servers when over 25 active at one time. Servers are now paged by 10 servers at a time. You still use it the same way just have pages to view now.
+Linux
+<https://github.com/spikeydragoon/Cross-Ark-Chat/files/3154660/CrossArkChatLinux.zip>
+
+* Updated startup messages
+* Added new command for our official host ServerBlend run d!serverblend for more info after updating the bot.
