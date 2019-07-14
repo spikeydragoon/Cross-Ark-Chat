@@ -1,14 +1,12 @@
-Config files are new so make sure you do not use the old one.
+Config files are the same so you can just copy your old config folder over.
 
 Windows
-<https://github.com/spikeydragoon/Cross-Ark-Chat/files/3237371/CrossArkChat.zip>
+<https://github.com/spikeydragoon/Cross-Ark-Chat/files/3390131/CrossArkChat.zip>
 
 Linux
-<https://github.com/spikeydragoon/Cross-Ark-Chat/files/3237375/CrossArkChatLinux.zip>
+<https://github.com/spikeydragoon/Cross-Ark-Chat/files/3390135/CrossArkChatLinux.zip>
 
-* Added option in config to allow the bot to interact with other discord bots. Note this should remain disabled unless you know what your doing.
-* Added option in config to show either the discord username or nickname when sending messages to a server from discord.
-* Fixed issue with discord messages being blocked/timing out due to a delay from the ark servers.
+* Fixed bot sending messages from itself back to the server again when IgnoreOtherBots was set to false.
 
 Be sure to check out the bot's official host <https://serverblend.com/my/aff.php?aff=175>
 Affiliate Disclosure: By using this link CrossArkChat will receive a small commission at no additional cost to you, if you sign up for the service.
