@@ -1,15 +1,17 @@
+v6.0 is now live
+
 Config files are the same so you can just copy your old config folder over.
 
 Windows
-<https://www.dropbox.com/s/kgwf36tzv3yvt6b/CrossArkChat.zip?dl=0>
+<https://www.dropbox.com/s/wvak3566vhy7d72/CrossArkChat.zip?dl=0>
 
 Linux
-<https://www.dropbox.com/s/30c759smqzd7xzb/CrossArkChatLinux.zip?dl=0>
+<https://www.dropbox.com/s/2i397wv68sjwlxz/CrossArkChatLinux.zip?dl=0>
 
 Arm-linux based
-<https://www.dropbox.com/s/4xo6u4qz4775u4r/CrossArkChatArm.zip?dl=0>
+<https://www.dropbox.com/s/n3xp0jwn4ww6yef/CrossArkChatArm.zip?dl=0>
 
-* Fixed bot sending messages to discord when send to server was false however discord prefix was enabled but the prefix was wrong.
+* Fixed bot sending messages to discord as a fall back without checking if a prefix was required.
 
-Be sure to check out the bot's official host <https://serverblend.com/my/aff.php?aff=175>
+Be sure to check out the bot's official host <https://serverblend.com/my/aff.php?aff=175>.  
 Affiliate Disclosure: By using this link CrossArkChat will receive a small commission at no additional cost to you, if you sign up for the service.
