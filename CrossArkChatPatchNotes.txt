@@ -1,17 +1,12 @@
-v6.0 is now live
+v6.1 is now live
 
 Config files are the same so you can just copy your old config folder over.
 
-Windows
-<https://www.dropbox.com/s/wvak3566vhy7d72/CrossArkChat.zip?dl=0>
+Download Links (Good news microsoft fixed the trim command in publish so i was able to update and trim files down to allow github to host them again)
+<https://github.com/spikeydragoon/Cross-Ark-Chat/releases>
 
-Linux
-<https://www.dropbox.com/s/2i397wv68sjwlxz/CrossArkChatLinux.zip?dl=0>
+* Fixed bot not listening to other bots when IgnoreOtherBots was false.
 
-Arm-linux based
-<https://www.dropbox.com/s/n3xp0jwn4ww6yef/CrossArkChatArm.zip?dl=0>
-
-* Fixed bot sending messages to discord as a fall back without checking if a prefix was required.
-
-Be sure to check out the bot's official host <https://serverblend.com/my/aff.php?aff=175>.  
+Be sure to check out the bot's official host Server Blend
+<https://serverblend.com/my/aff.php?aff=175>
 Affiliate Disclosure: By using this link CrossArkChat will receive a small commission at no additional cost to you, if you sign up for the service.
