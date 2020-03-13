@@ -1,12 +1,12 @@
-v6.1 is now live
-
+v6.2 is now live.
 Config files are the same so you can just copy your old config folder over.
 
-Download Links (Good news microsoft fixed the trim command in publish so i was able to update and trim files down to allow github to host them again)
+Release page for downloads
 <https://github.com/spikeydragoon/Cross-Ark-Chat/releases>
 
-* Fixed bot not listening to other bots when IgnoreOtherBots was false.
+* Fixed issue with reboot command not working due to a bad compile.
+* Fixed issue with tribe logs not working when tribe name had ID in it.
 
-Be sure to check out the bot's official host Server Blend
+Be sure to check out the bot's official host server blend 
 <https://serverblend.com/my/aff.php?aff=175>
 Affiliate Disclosure: By using this link CrossArkChat will receive a small commission at no additional cost to you, if you sign up for the service.
