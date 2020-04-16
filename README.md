@@ -10,7 +10,7 @@ After you check out the wiki and FAQ join us on [Discord](https://discord.gg/HAk
 Be sure to check out the bot's official host [ServerBlend.com](https://serverblend.com/my/aff.php?aff=175).  
 Affiliate Disclosure: By using this link CrossArkChat will receive a small commission at no additional cost to you, if you sign up for the service.
 
-If you want to support me you can now do so with the link below.
+If you want to support me you can now do so with the link below. It will say Dragon Coding Studios at the top.
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QUTMCZQZ2STUU&source=url)
 
