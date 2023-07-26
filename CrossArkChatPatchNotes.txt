@@ -1,12 +1,13 @@
-v6.2 is now live.
+@everyone V6.3.0 is now live
+
+Note this release does not add any features just updates to newer framework to fix ubuntus ssl issues.
+
 Config files are the same so you can just copy your old config folder over.
 
 Release page for downloads
 <https://github.com/spikeydragoon/Cross-Ark-Chat/releases>
 
-* Fixed issue with reboot command not working due to a bad compile.
-* Fixed issue with tribe logs not working when tribe name had ID in it.
+* Updated librarys and core framework to .net 5
 
-Be sure to check out the bot's official host server blend 
-<https://serverblend.com/my/aff.php?aff=175>
+Be sure to check out the bot's official host server blend <https://serverblend.com/my/aff.php?aff=175>
 Affiliate Disclosure: By using this link CrossArkChat will receive a small commission at no additional cost to you, if you sign up for the service.
