@@ -1,4 +1,4 @@
-@everyone V6.3.0 is now live
+V6.3.0 is now live
 
 Note this release does not add any features just updates to newer framework to fix ubuntus ssl issues.
 
