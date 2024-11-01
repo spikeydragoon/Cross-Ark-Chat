@@ -6,4 +6,4 @@ Release page for downloads
 <https://github.com/spikeydragoon/Cross-Ark-Chat/releases>
 
 * Updated librarys and core framework to .net 8
-* Removed serverblend from the project due.
+* Removed serverblend from the project.
